@@ -13,7 +13,7 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
-          content="A simple project stater to work with Typescript, React, NextJS and Styled Components "
+          content="A simple sdfdsfproject stater to work with Typescript, React, NextJS and Styled Components "
         />
       </Head>
       <GlobalStyles />
