@@ -6,7 +6,13 @@ export type LogoProps = {
 
 const Logo = ({ color = 'white' }: LogoProps) => (
   <S.Wrapper color={color}>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 232 44">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 232 44"
+      role="img"
+      aria-label="Fis Real Estate"
+    >
       <path
         fill="#7839F3"
         d="M21.895 43.79c12.092 0 21.895-9.803 21.895-21.895C43.79 9.803 33.987 0 21.895 0 9.803 0 0 9.803 0 21.895 0 33.987 9.803 43.79 21.895 43.79Z"
