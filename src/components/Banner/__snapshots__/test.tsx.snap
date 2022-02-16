@@ -34,7 +34,7 @@ exports[`<Banner /> should render the heading 1`] = `
 }
 
 .c4 strong {
-  color: #2691B2;
+  color: #095C76;
   font-weight: 600;
 }
 
