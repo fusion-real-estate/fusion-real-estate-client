@@ -9,17 +9,17 @@ import * as S from './styles'
 const Menu = () => (
   <S.Wrapper>
     <S.IconWrapper>
-      <MenuIcon />
+      <MenuIcon aria-label="Open Menu" />
     </S.IconWrapper>
     <S.LogoWrapper>
-      <Logo hideOnMobile />
+      <Logo hideOnMobile aria-label="Logo" />
     </S.LogoWrapper>
     <S.MenuGroup>
       <S.IconWrapper>
-        <Whatsapp />
+        <Whatsapp aria-label="Whatsapp" />
       </S.IconWrapper>
       <S.IconWrapper>
-        <EmailOutline />
+        <EmailOutline aria-label="Email" />
       </S.IconWrapper>
     </S.MenuGroup>
   </S.Wrapper>
