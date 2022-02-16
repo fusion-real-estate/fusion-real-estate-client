@@ -44,9 +44,11 @@ export const MenuNav = styled.div``
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
+    color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
     margin: 0.3rem ${theme.spacings.small} 0;
     text-decoration: none;
+    text-transform: uppercase;
     text-align: center;
 
     &:hover {
