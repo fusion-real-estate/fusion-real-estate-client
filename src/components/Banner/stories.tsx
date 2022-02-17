@@ -4,6 +4,11 @@ import Banner, { BannerProps } from '.'
 export default {
   title: 'Banner',
   component: Banner,
+  argTypes: {
+    ribbon: {
+      type: 'string'
+    }
+  },
   args: {
     img: 'https://creativelayers.net/themes/houzing-html/images/home/1.jpg',
     title: 'É muito bom estar em casa!',
@@ -14,4 +19,20 @@ export default {
   }
 } as Meta
 
-export const Default: Story<BannerProps> = (args) => <Banner {...args} />
+export const Default: Story<BannerProps> = (args) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Banner {...args} />
+  </div>
+)
+
+export const WithRibbon: Story<BannerProps> = (args) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Banner {...args} />
+  </div>
+)
+
+WithRibbon.args = {
+  ribbon: 'Destaque',
+  ribbonSize: 'normal',
+  ribbonColor: 'secondary'
+}
