@@ -5,16 +5,17 @@ import Ribbon from '.'
 
 describe('<Ribbon />', () => {
   it('should render the text correctly', () => {
-    renderWithTheme(<Ribbon>Destaque</Ribbon>)
+    const { container } = renderWithTheme(<Ribbon>Destaque</Ribbon>)
 
     expect(screen.getByText(/Destaque/i)).toBeInTheDocument()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the primary color', () => {
     renderWithTheme(<Ribbon>Destaque</Ribbon>)
 
     expect(screen.getByText(/Destaque/i)).toHaveStyle({
-      backgroundColor: '#095C76'
+      backgroundColor: '#34ABD0'
     })
   })
 
@@ -22,7 +23,7 @@ describe('<Ribbon />', () => {
     renderWithTheme(<Ribbon>Destaque</Ribbon>)
 
     expect(screen.getByText(/Destaque/i)).toHaveStyle({
-      backgroundColor: '#095C76'
+      backgroundColor: '#34ABD0'
     })
   })
 
