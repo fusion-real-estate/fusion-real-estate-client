@@ -33,7 +33,7 @@ describe('<Heading />', () => {
 
     expect(screen.getByRole('heading', { name: /Fusion/i })).toHaveStyleRule(
       'border',
-      '0.4rem solid #095C76',
+      '0.4rem solid #0D263B',
       {
         modifier: '::after'
       }

@@ -22,13 +22,13 @@ export default {
     }
   },
   colors: {
-    primary: '#095C76',
+    primary: '#0D263B',
     secondary: '#34ABD0',
     mainBg: '#095C76',
     white: '#FAFAFA',
     black: '#373737',
     lightGray: '#EAEAEA',
-    gray: '#EFEFEF',
+    gray: '#7D7D7D',
     darkGray: '#E3E3E3'
   },
   spacings: {
