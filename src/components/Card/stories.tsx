@@ -14,11 +14,26 @@ export default {
     img:
       'https://creativelayers.net/themes/houzing-html/images/property/fl1.jpg',
     price: 'R$ 1200.000,00'
+  },
+  argTypes: {
+    ribbon: { type: 'string' }
   }
 } as Meta
 
-export const Basic: Story<CardProps> = (args) => (
+export const Default: Story<CardProps> = (args) => (
   <div style={{ width: '30rem' }}>
     <Card {...args} />
   </div>
 )
+
+export const WithRibbon: Story<CardProps> = (args) => (
+  <div style={{ width: '30rem' }}>
+    <Card {...args} />
+  </div>
+)
+
+WithRibbon.args = {
+  ribbon: 'Destaque',
+  ribbonSize: 'small',
+  ribbonColor: 'primary'
+}

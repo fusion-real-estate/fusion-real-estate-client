@@ -31,4 +31,20 @@ describe('<Card />', () => {
       props.img
     )
   })
+
+  it('should render Ribbon', () => {
+    renderWithTheme(
+      <Card
+        {...props}
+        ribbon="My Ribbon"
+        ribbonColor="secondary"
+        ribbonSize="small"
+      />
+    )
+    const ribbon = screen.getByText(/my ribbon/i)
+
+    expect(ribbon).toHaveStyle({ backgroundColor: '#34ABD0' })
+    expect(ribbon).toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' })
+    expect(ribbon).toBeInTheDocument()
+  })
 })

@@ -1,3 +1,5 @@
+import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
+
 import Icon from '@mdi/react'
 
 import { mdiBedKingOutline, mdiShower, mdiCar, mdiFormTextarea } from '@mdi/js'
@@ -13,6 +15,9 @@ export type CardProps = {
   sqt: string
   img: string
   price: string
+  ribbon?: React.ReactNode
+  ribbonColor?: RibbonColors
+  ribbonSize?: RibbonSizes
 }
 
 const Card = ({
@@ -23,9 +28,17 @@ const Card = ({
   garage,
   sqt,
   img,
-  price
+  price,
+  ribbon,
+  ribbonColor = 'primary',
+  ribbonSize = 'small'
 }: CardProps) => (
   <S.Wrapper>
+    {!!ribbon && (
+      <Ribbon color={ribbonColor} size={ribbonSize}>
+        {ribbon}
+      </Ribbon>
+    )}
     <S.ImageBox>
       <img src={img} alt={title} />
     </S.ImageBox>
