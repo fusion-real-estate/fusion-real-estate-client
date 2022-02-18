@@ -24,12 +24,10 @@ export default {
   colors: {
     primary: '#0D263B',
     secondary: '#34ABD0',
-    mainBg: '#095C76',
     white: '#FAFAFA',
     black: '#373737',
     lightGray: '#EAEAEA',
-    gray: '#7D7D7D',
-    darkGray: '#E3E3E3'
+    gray: '#7D7D7D'
   },
   spacings: {
     xxsmall: '0.8rem',
