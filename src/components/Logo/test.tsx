@@ -4,17 +4,17 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import Logo from '.'
 
 describe('<Logo />', () => {
-  it('should render a white label by default', () => {
+  it('should render a black label by default', () => {
     renderWithTheme(<Logo />)
     expect(screen.getByLabelText(/Fusion/i).parentElement).toHaveStyle({
-      color: '#FAFAFA'
+      color: '#373737'
     })
   })
 
-  it('should render a black label when color is passed', () => {
-    renderWithTheme(<Logo color="black" />)
+  it('should render a white label when color is passed', () => {
+    renderWithTheme(<Logo color="white" />)
     expect(screen.getByLabelText(/Fusion/i).parentElement).toHaveStyle({
-      color: '#373737'
+      color: '#FAFAFA'
     })
   })
 
@@ -28,7 +28,7 @@ describe('<Logo />', () => {
   it('should render a normal logo when size is default', () => {
     renderWithTheme(<Logo />)
     expect(screen.getByLabelText(/Fusion/i).parentElement).toHaveStyle({
-      width: '11rem'
+      width: '20rem'
     })
   })
 
