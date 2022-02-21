@@ -3,6 +3,7 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.main`
   position: relative;
+  width: 30rem;
 `
 
 type ImageProps = {
