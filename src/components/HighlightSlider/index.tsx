@@ -1,13 +1,13 @@
 import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
 import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
 
-import Showcase, { ShowcaseProps } from 'components/Showcase'
+import Highlight, { HighlightProps } from 'components/Highlight'
 import Slider, { SliderSettings } from 'components/Slider'
 
 import * as S from './styles'
 
-export type ShowcaseSliderProps = {
-  items: ShowcaseProps[]
+export type HighlightSliderProps = {
+  items: HighlightProps[]
   color?: 'white' | 'black'
 }
 
@@ -49,14 +49,14 @@ const settings: SliderSettings = {
   prevArrow: <ArrowLeft aria-label="previous games" />
 }
 
-const ShowcaseSlider = ({ items, color = 'black' }: ShowcaseSliderProps) => (
+const HighlightSlider = ({ items, color = 'black' }: HighlightSliderProps) => (
   <S.Wrapper color={color}>
     <Slider settings={settings}>
       {items.map((item, index) => (
-        <Showcase key={index} {...item} />
+        <Highlight key={index} {...item} />
       ))}
     </Slider>
   </S.Wrapper>
 )
 
-export default ShowcaseSlider
+export default HighlightSlider

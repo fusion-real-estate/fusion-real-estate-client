@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Showcase /> should render the heading 1`] = `
+exports[`<Highlight /> should render the heading 1`] = `
 .c0 {
   position: relative;
   width: 30rem;

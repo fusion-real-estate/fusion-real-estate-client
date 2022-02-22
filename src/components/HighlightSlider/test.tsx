@@ -2,7 +2,7 @@ import 'match-media-mock'
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import ShowcaseSlider from '.'
+import HighlightSlider from '.'
 
 const items = [
   {
@@ -43,15 +43,15 @@ const items = [
   }
 ]
 
-describe('<ShowcaseSlider />', () => {
+describe('<HighlightSlider />', () => {
   it('should render with 4 active items', () => {
-    const { container } = renderWithTheme(<ShowcaseSlider items={items} />)
+    const { container } = renderWithTheme(<HighlightSlider items={items} />)
 
     expect(container.querySelectorAll('.slick-active')).toHaveLength(4)
   })
 
   it('should render white arrows if color passed', () => {
-    renderWithTheme(<ShowcaseSlider items={items} color="white" />)
+    renderWithTheme(<HighlightSlider items={items} color="white" />)
 
     expect(screen.getByLabelText(/previous/i)).toHaveStyle({
       color: '#FAFAFA'

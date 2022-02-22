@@ -1,6 +1,6 @@
 import { BannerProps } from 'components/Banner'
 import { CardProps } from 'components/Card'
-import { ShowcaseProps } from 'components/Showcase'
+import { HighlightProps } from 'components/Highlight'
 
 import { Container } from 'components/Container'
 
@@ -10,16 +10,16 @@ import Menu from 'components/Menu'
 import BannerSlider from 'components/BannerSlider'
 import CardSlider from 'components/CardSlider'
 import Footer from 'components/Footer'
-import ShowcaseSlider from 'components/ShowcaseSlider'
+import HighlightSlider from 'components/HighlightSlider'
 
 import * as S from './styles'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
   newFeature: CardProps[]
-  newExplore: ShowcaseProps[]
+  newExplore: HighlightProps[]
   newRecents: CardProps[]
-  newShowcase: ShowcaseProps[]
+  newHighlight: HighlightProps[]
 }
 
 const Home = ({
@@ -27,7 +27,7 @@ const Home = ({
   newFeature,
   newExplore,
   newRecents,
-  newShowcase
+  newHighlight
 }: HomeTemplateProps) => (
   <section>
     <Container>
@@ -57,7 +57,7 @@ const Home = ({
           </Heading>
           <Subtitle>Faça sua pesquisa por tipo de imóvel</Subtitle>
         </S.SectionSepartor>
-        <ShowcaseSlider items={newExplore} />
+        <HighlightSlider items={newExplore} />
       </Container>
     </S.SectionExplore>
 
@@ -81,7 +81,7 @@ const Home = ({
           </Heading>
           <Subtitle>Faça sua busca por cidade</Subtitle>
         </S.SectionSepartor>
-        <ShowcaseSlider items={newShowcase} />
+        <HighlightSlider items={newHighlight} />
       </Container>
     </S.SectionSearch>
 

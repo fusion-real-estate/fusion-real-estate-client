@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import Showcase from '.'
+import Highlight from '.'
 
 const props = {
   img: 'https://creativelayers.net/themes/houzing-html/images/property/ep1.jpg',
@@ -9,9 +9,9 @@ const props = {
   subtitle: '700 Imóveis'
 }
 
-describe('<Showcase />', () => {
+describe('<Highlight />', () => {
   it('should render the heading', () => {
-    const { container } = renderWithTheme(<Showcase {...props} />)
+    const { container } = renderWithTheme(<Highlight {...props} />)
 
     expect(screen.getByRole('heading', { name: /casa/i })).toBeInTheDocument()
 

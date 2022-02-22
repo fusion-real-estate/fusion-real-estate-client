@@ -1,9 +1,9 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import Showcase, { ShowcaseProps } from '.'
+import Highlight, { HighlightProps } from '.'
 
 export default {
-  title: 'Showcase',
-  component: Showcase,
+  title: 'Highlight',
+  component: Highlight,
   args: {
     img:
       'https://creativelayers.net/themes/houzing-html/images/property/ep1.jpg',
@@ -12,8 +12,8 @@ export default {
   }
 } as Meta
 
-export const Default: Story<ShowcaseProps> = (args) => (
+export const Default: Story<HighlightProps> = (args) => (
   <div style={{ width: '30rem' }}>
-    <Showcase {...args} />
+    <Highlight {...args} />
   </div>
 )

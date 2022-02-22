@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { ShowcaseSliderProps } from '.'
+import { HighlightSliderProps } from '.'
 
-type WrapperProps = Pick<ShowcaseSliderProps, 'color'>
+type WrapperProps = Pick<HighlightSliderProps, 'color'>
 
 export const Wrapper = styled.section<WrapperProps>`
   ${({ theme, color }) => css`

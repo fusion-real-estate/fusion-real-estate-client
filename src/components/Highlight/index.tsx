@@ -1,12 +1,12 @@
 import * as S from './styles'
 
-export type ShowcaseProps = {
+export type HighlightProps = {
   img: string
   title: string
   subtitle: string
 }
 
-const Showcase = ({ img, title, subtitle }: ShowcaseProps) => (
+const Highlight = ({ img, title, subtitle }: HighlightProps) => (
   <S.Wrapper>
     <S.Image src={img} aria-label={title} role="img" />
 
@@ -19,4 +19,4 @@ const Showcase = ({ img, title, subtitle }: ShowcaseProps) => (
   </S.Wrapper>
 )
 
-export default Showcase
+export default Highlight
