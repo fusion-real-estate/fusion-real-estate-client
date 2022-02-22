@@ -9,16 +9,17 @@ import Subtitle from 'components/Subtitle'
 import Menu from 'components/Menu'
 import BannerSlider from 'components/BannerSlider'
 import CardSlider from 'components/CardSlider'
-import Showcase from 'components/Showcase'
+import Footer from 'components/Footer'
+import ShowcaseSlider from 'components/ShowcaseSlider'
 
 import * as S from './styles'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
   newFeature: CardProps[]
-  newExplore: ShowcaseProps
+  newExplore: ShowcaseProps[]
   newRecents: CardProps[]
-  newShowcase: ShowcaseProps
+  newShowcase: ShowcaseProps[]
 }
 
 const Home = ({
@@ -47,7 +48,7 @@ const Home = ({
         Explore
       </Heading>
       <Subtitle>Faça sua pesquisa por tipo de imóvel</Subtitle>
-      <Showcase {...newExplore} />
+      <ShowcaseSlider items={newExplore} />
     </Container>
 
     <Container>
@@ -63,8 +64,10 @@ const Home = ({
         Pesquisa por cidade
       </Heading>
       <Subtitle>Faça sua busca por cidade</Subtitle>
-      <Showcase {...newShowcase} />
+      <ShowcaseSlider items={newShowcase} />
     </Container>
+
+    <Footer />
   </section>
 )
 
