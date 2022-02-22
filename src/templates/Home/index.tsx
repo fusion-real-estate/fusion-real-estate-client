@@ -32,40 +32,58 @@ const Home = ({
   <section>
     <Container>
       <Menu />
-      <BannerSlider items={banners} />
+      <S.SectionBanner>
+        <BannerSlider items={banners} />
+      </S.SectionBanner>
     </Container>
 
-    <Container>
-      <Heading lineLeft color="black">
-        Destaques
-      </Heading>
-      <Subtitle>Imóveis em destaques</Subtitle>
-      <CardSlider items={newFeature} />
-    </Container>
+    <S.SectionFeature>
+      <Container>
+        <S.SectionSepartor>
+          <Heading lineLeft color="black">
+            Destaques
+          </Heading>
+          <Subtitle>Imóveis em destaques</Subtitle>
+        </S.SectionSepartor>
+        <CardSlider items={newFeature} />
+      </Container>
+    </S.SectionFeature>
 
-    <Container>
-      <Heading lineLeft color="black">
-        Explore
-      </Heading>
-      <Subtitle>Faça sua pesquisa por tipo de imóvel</Subtitle>
-      <ShowcaseSlider items={newExplore} />
-    </Container>
+    <S.SectionExplore>
+      <Container>
+        <S.SectionSepartor>
+          <Heading lineLeft color="black">
+            Explore
+          </Heading>
+          <Subtitle>Faça sua pesquisa por tipo de imóvel</Subtitle>
+        </S.SectionSepartor>
+        <ShowcaseSlider items={newExplore} />
+      </Container>
+    </S.SectionExplore>
 
-    <Container>
-      <Heading lineLeft color="black">
-        Recentes
-      </Heading>
-      <Subtitle>Imóveis recentes</Subtitle>
-      <CardSlider items={newRecents} />
-    </Container>
+    <S.SectionRecents>
+      <Container>
+        <S.SectionSepartor>
+          <Heading lineLeft color="black">
+            Recentes
+          </Heading>
+          <Subtitle>Imóveis recentes</Subtitle>
+        </S.SectionSepartor>
+        <CardSlider items={newRecents} />
+      </Container>
+    </S.SectionRecents>
 
-    <Container>
-      <Heading lineLeft color="black">
-        Pesquisa por cidade
-      </Heading>
-      <Subtitle>Faça sua busca por cidade</Subtitle>
-      <ShowcaseSlider items={newShowcase} />
-    </Container>
+    <S.SectionSearch>
+      <Container>
+        <S.SectionSepartor>
+          <Heading lineLeft color="black">
+            Pesquisa por cidade
+          </Heading>
+          <Subtitle>Faça sua busca por cidade</Subtitle>
+        </S.SectionSepartor>
+        <ShowcaseSlider items={newShowcase} />
+      </Container>
+    </S.SectionSearch>
 
     <Footer />
   </section>
