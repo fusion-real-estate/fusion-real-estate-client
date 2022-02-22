@@ -3,6 +3,7 @@
 exports[`<Showcase /> should render the heading 1`] = `
 .c0 {
   position: relative;
+  width: 30rem;
 }
 
 .c1 {
