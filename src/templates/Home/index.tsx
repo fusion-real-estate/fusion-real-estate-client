@@ -1,16 +1,14 @@
 import { BannerProps } from 'components/Banner'
 import { CardProps } from 'components/Card'
 import { HighlightProps } from 'components/Highlight'
-
 import { Container } from 'components/Container'
 
-import Heading from 'components/Heading'
-import Subtitle from 'components/Subtitle'
 import Menu from 'components/Menu'
 import BannerSlider from 'components/BannerSlider'
 import CardSlider from 'components/CardSlider'
 import Footer from 'components/Footer'
 import HighlightSlider from 'components/HighlightSlider'
+import Showcase from 'components/Showcase'
 
 import * as S from './styles'
 
@@ -35,55 +33,33 @@ const Home = ({
       <S.SectionBanner>
         <BannerSlider items={banners} />
       </S.SectionBanner>
-    </Container>
 
-    <S.SectionFeature>
-      <Container>
-        <S.SectionSepartor>
-          <Heading lineLeft color="black">
-            Destaques
-          </Heading>
-          <Subtitle>Imóveis em destaques</Subtitle>
-        </S.SectionSepartor>
+      <S.SectionDefault>
+        <Showcase title="Destaques" subtitle="Imóveis em destaques" />
         <CardSlider items={newFeature} />
-      </Container>
-    </S.SectionFeature>
+      </S.SectionDefault>
 
-    <S.SectionExplore>
-      <Container>
-        <S.SectionSepartor>
-          <Heading lineLeft color="black">
-            Explore
-          </Heading>
-          <Subtitle>Faça sua pesquisa por tipo de imóvel</Subtitle>
-        </S.SectionSepartor>
+      <S.SectionDefault>
+        <Showcase
+          title="Explore"
+          subtitle="Faça sua pesquisa por tipo de imóvel"
+        />
         <HighlightSlider items={newExplore} />
-      </Container>
-    </S.SectionExplore>
+      </S.SectionDefault>
 
-    <S.SectionRecents>
-      <Container>
-        <S.SectionSepartor>
-          <Heading lineLeft color="black">
-            Recentes
-          </Heading>
-          <Subtitle>Imóveis recentes</Subtitle>
-        </S.SectionSepartor>
+      <S.SectionDefault>
+        <Showcase title="Recentes" subtitle="Imóveis recentes" />
         <CardSlider items={newRecents} />
-      </Container>
-    </S.SectionRecents>
+      </S.SectionDefault>
 
-    <S.SectionSearch>
-      <Container>
-        <S.SectionSepartor>
-          <Heading lineLeft color="black">
-            Pesquisa por cidade
-          </Heading>
-          <Subtitle>Faça sua busca por cidade</Subtitle>
-        </S.SectionSepartor>
+      <S.SectionDefault>
+        <Showcase
+          title="Pesquisa por cidade"
+          subtitle="Faça sua busca por cidade"
+        />
         <HighlightSlider items={newHighlight} />
-      </Container>
-    </S.SectionSearch>
+      </S.SectionDefault>
+    </Container>
 
     <Footer />
   </section>
