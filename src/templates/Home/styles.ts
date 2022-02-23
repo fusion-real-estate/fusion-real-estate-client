@@ -21,9 +21,10 @@ export const SectionDefault = styled.div`
     `}
 
     ${media.greaterThan('medium')`
+      margin-top: 0;
       margin-bottom: 0;
-      padding-top: 10rem;
-      padding-bottom: 10rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     `}
   `}
 `

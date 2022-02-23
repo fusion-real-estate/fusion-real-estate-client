@@ -11,6 +11,9 @@ export const Wrapper = styled.h3<SubtitleProps>`
 
     ${media.greaterThan('medium')`
       font-size: ${theme.font.sizes.large};
+      margin-left: ${theme.spacings.xsmall};
+      margin-top: -${theme.spacings.xxsmall};
+      margin-bottom: ${theme.spacings.small};
     `}
   `}
 `
