@@ -3,12 +3,11 @@ import { CardProps } from 'components/Card'
 import { HighlightProps } from 'components/Highlight'
 import { Container } from 'components/Container'
 
-import Menu from 'components/Menu'
 import BannerSlider from 'components/BannerSlider'
 import CardSlider from 'components/CardSlider'
-import Footer from 'components/Footer'
 import HighlightSlider from 'components/HighlightSlider'
 import Showcase from 'components/Showcase'
+import Base from 'templates/Base'
 
 import * as S from './styles'
 
@@ -27,9 +26,8 @@ const Home = ({
   newRecents,
   newHighlight
 }: HomeTemplateProps) => (
-  <section>
+  <Base>
     <Container>
-      <Menu />
       <S.SectionBanner>
         <BannerSlider items={banners} />
       </S.SectionBanner>
@@ -60,9 +58,7 @@ const Home = ({
         <HighlightSlider items={newHighlight} />
       </S.SectionDefault>
     </Container>
-
-    <Footer />
-  </section>
+  </Base>
 )
 
 export default Home
