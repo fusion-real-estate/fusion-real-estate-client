@@ -4,7 +4,7 @@ import SingleInfo, { SingleInfoProps } from '.'
 import mockSingleInfo from './mock'
 
 export default {
-  title: 'SingleInfo',
+  title: 'Page Single/SingleInfo',
   component: SingleInfo,
   args: mockSingleInfo
 } as Meta
