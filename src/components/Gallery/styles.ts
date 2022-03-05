@@ -33,7 +33,6 @@ export const Wrapper = styled.div`
     }
 
     .slick-slide > div {
-      /* margin: 0 ${theme.spacings.xsmall}; */
       cursor: pointer;
     }
 
@@ -44,5 +43,27 @@ export const Wrapper = styled.div`
     ${media.lessThan('huge')`
       overflow-x: hidden;
     `}
+  `}
+`
+
+export type ModalProps = {
+  isOpen: boolean
+}
+
+const modalModifiers = {
+  open: () => css`
+    opacity: 1;
+  `,
+
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+  `
+}
+
+export const Modal = styled.div<ModalProps>`
+  ${({ isOpen }) => css`
+    ${isOpen && modalModifiers.open()}
+    ${!isOpen && modalModifiers.close()}
   `}
 `
