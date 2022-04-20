@@ -1,5 +1,7 @@
 import Property, { PropertyTemplateProps } from 'templates/Property'
 
+import galleryMock from 'components/Gallery/mock'
+
 export default function Index(props: PropertyTemplateProps) {
   return <Property {...props} />
 }
@@ -26,7 +28,8 @@ export async function getStaticProps() {
         sqt: '150 Metros',
         price: '1200.000,00',
         type: 'Apartamento'
-      }
+      },
+      gallery: galleryMock
     }
   }
 }

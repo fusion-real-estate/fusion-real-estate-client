@@ -16,3 +16,11 @@ const Section = styled(Container).attrs({ as: 'section' })`
 `
 
 export const SectionPropertyInfo = styled(Section)``
+
+export const SectionGallery = styled.div`
+  display: none;
+
+  ${media.greaterThan('medium')`
+    display: block;
+  `}
+`
