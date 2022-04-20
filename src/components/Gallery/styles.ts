@@ -20,11 +20,11 @@ export const Wrapper = styled.div`
     }
 
     .slick-prev {
-      left: -${theme.spacings.xxsmall};
+      left: ${theme.spacings.large};
     }
 
     .slick-next {
-      right: -${theme.spacings.xxsmall};
+      right: ${theme.spacings.large};
     }
 
     .slick-prev.slick-disabled,
@@ -93,6 +93,7 @@ export const Close = styled.div`
 `
 
 export const Content = styled.div`
-  max-width: min(120rem, 100%);
-  max-height: 80rem;
+  max-width: min(100rem, 100%);
+  max-height: 50rem;
+  margin-top: -40rem;
 `

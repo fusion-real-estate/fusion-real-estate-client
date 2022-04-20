@@ -19,6 +19,7 @@ export const SectionPropertyInfo = styled(Section)``
 
 export const SectionGallery = styled.div`
   display: none;
+  overflow: hidden;
 
   ${media.greaterThan('medium')`
     display: block;
