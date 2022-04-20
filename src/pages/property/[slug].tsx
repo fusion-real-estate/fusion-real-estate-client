@@ -1,3 +1,5 @@
+import Property from 'templates/Property'
+
 export default function Index() {
-  return <h1>Nextjs</h1>
+  return <Property />
 }
