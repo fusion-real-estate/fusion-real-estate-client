@@ -1,10 +1,18 @@
 import Base from 'templates/Base'
 
+import SingleInfo, { SingleInfoProps } from 'components/SingleInfo'
+
 import * as S from './styles'
 
-const Property = () => (
+export type PropertyTemplateProps = {
+  propertyInfo: SingleInfoProps
+}
+
+const Property = ({ propertyInfo }: PropertyTemplateProps) => (
   <Base>
-    <h1>Property</h1>
+    <S.SectionPropertyInfo>
+      <SingleInfo {...propertyInfo} />
+    </S.SectionPropertyInfo>
   </Base>
 )
 
