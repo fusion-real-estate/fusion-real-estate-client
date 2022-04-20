@@ -4,13 +4,19 @@ import SingleInfo, { SingleInfoProps } from 'components/SingleInfo'
 import Gallery, { GalleryImageProps } from 'components/Gallery'
 
 import * as S from './styles'
+import TextContent from 'components/TextContent'
 
 export type PropertyTemplateProps = {
   propertyInfo: SingleInfoProps
   gallery: GalleryImageProps[]
+  description: string
 }
 
-const Property = ({ propertyInfo, gallery }: PropertyTemplateProps) => (
+const Property = ({
+  propertyInfo,
+  gallery,
+  description
+}: PropertyTemplateProps) => (
   <Base>
     <>
       <S.SectionGallery>
@@ -18,6 +24,9 @@ const Property = ({ propertyInfo, gallery }: PropertyTemplateProps) => (
       </S.SectionGallery>
       <S.SectionPropertyInfo>
         <SingleInfo {...propertyInfo} />
+        <S.SectionDescription>
+          <TextContent title="Descrição" content={description} />
+        </S.SectionDescription>
       </S.SectionPropertyInfo>
     </>
   </Base>

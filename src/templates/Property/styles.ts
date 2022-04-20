@@ -25,3 +25,10 @@ export const SectionGallery = styled.div`
     display: block;
   `}
 `
+
+export const SectionDescription = styled.div`
+  ${({ theme }) => css`
+    margin-top: ${theme.spacings.xlarge};
+    margin-bottom: ${theme.spacings.xlarge};
+  `}
+`

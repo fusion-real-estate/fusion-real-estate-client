@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
     ${media.greaterThan('medium')`
-      padding: ${theme.spacings.medium};
       color: ${theme.colors.primary};
     `}
 

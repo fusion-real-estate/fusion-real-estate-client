@@ -14,6 +14,26 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
+  const descriptionHTML = `<p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
+      tempore. Nulla accusamus tempora quaerat repellat accusantium
+      voluptatem reprehenderit iste dolorem quam rerum laboriosam architecto
+      eos, fugiat ab vero facilis soluta.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
+      tempore. Nulla accusamus tempora quaerat repellat accusantium
+      voluptatem reprehenderit iste dolorem quam rerum laboriosam architecto
+      eos, fugiat ab vero facilis soluta.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
+      tempore. Nulla accusamus tempora quaerat repellat accusantium
+      voluptatem reprehenderit iste dolorem quam rerum laboriosam architecto
+      eos, fugiat ab vero facilis soluta.
+    </p>
+    `
+
   return {
     props: {
       propertyInfo: {
@@ -29,7 +49,8 @@ export async function getStaticProps() {
         price: '1200.000,00',
         type: 'Apartamento'
       },
-      gallery: galleryMock
+      gallery: galleryMock,
+      description: descriptionHTML
     }
   }
 }
