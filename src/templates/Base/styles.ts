@@ -8,3 +8,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `
+
+export const Content = styled.div`
+  flex: 1 0 auto;
+`
