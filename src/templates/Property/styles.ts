@@ -32,3 +32,5 @@ export const SectionDescription = styled.div`
     margin-bottom: ${theme.spacings.xlarge};
   `}
 `
+
+export const SectionFacilities = styled.div``

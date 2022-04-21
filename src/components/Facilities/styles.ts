@@ -27,8 +27,8 @@ export const BoxList = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    margin-top: ${theme.spacings.xxsmall};
-    margin-right: ${theme.spacings.xxsmall};
+    margin-top: ${theme.spacings.xsmall};
+    margin-right: ${theme.spacings.large};
 
     svg {
       height: 2rem;

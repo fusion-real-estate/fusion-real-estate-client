@@ -50,7 +50,12 @@ export async function getStaticProps() {
         type: 'Apartamento'
       },
       gallery: galleryMock,
-      description: descriptionHTML
+      description: descriptionHTML,
+      facilities: {
+        title: 'Facilities',
+        airConditioning: 'Air Conditioning',
+        barbeque: 'Barbeque'
+      }
     }
   }
 }
