@@ -28,4 +28,10 @@ describe('<ExploreSidebar />', () => {
 
     expect(screen.getByRole('radio', { name: /menor preço/i }))
   })
+
+  it('should render inputs', () => {
+    renderWithTheme(<ExploreSidebar />)
+
+    expect(screen.getByRole('button', { name: /filtrar/i })).toBeInTheDocument()
+  })
 })

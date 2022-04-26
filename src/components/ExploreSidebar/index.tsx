@@ -1,6 +1,7 @@
 import Heading from 'components/Heading'
 import Checkbox from 'components/Checkbox'
 import Radio from 'components/Radio'
+import Button from 'components/Button'
 
 import * as S from './styles'
 
@@ -41,6 +42,10 @@ const ExploreSidebar = () => (
       label="Minas Gerais"
       labelFor="minas-gerais"
     />
+
+    <Button fullWidth size="medium">
+      Filtrar
+    </Button>
   </S.Wrapper>
 )
 

@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import ExploreSidebar from '.'
 
 export default {
-  title: 'ExploreSidebar',
+  title: 'Sidebar/ExploreSidebar',
   component: ExploreSidebar
 } as Meta
 
