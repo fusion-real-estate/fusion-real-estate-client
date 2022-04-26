@@ -47,8 +47,8 @@ exports[`<Facilities /> should render the heading 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-top: 0.8rem;
-  margin-right: 0.8rem;
+  margin-top: 1.6rem;
+  margin-right: 4.0rem;
 }
 
 .c2 svg {

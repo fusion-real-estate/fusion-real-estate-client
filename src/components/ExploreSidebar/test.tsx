@@ -3,9 +3,11 @@ import { renderWithTheme } from 'utils/tests/helpers'
 
 import ExploreSidebar from '.'
 
+import items from './mock'
+
 describe('<ExploreSidebar />', () => {
   it('should render the heading', () => {
-    renderWithTheme(<ExploreSidebar />)
+    renderWithTheme(<ExploreSidebar items={items} />)
 
     expect(screen.getByRole('heading', { name: /preço/i })).toBeInTheDocument()
     expect(
@@ -22,15 +24,15 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('should render inputs', () => {
-    renderWithTheme(<ExploreSidebar />)
+    renderWithTheme(<ExploreSidebar items={items} />)
 
     expect(screen.getByRole('checkbox', { name: /abaixo de R\$200/i }))
 
-    expect(screen.getByRole('radio', { name: /menor preço/i }))
+    expect(screen.getByRole('radio', { name: /menor valor/i }))
   })
 
   it('should render inputs', () => {
-    renderWithTheme(<ExploreSidebar />)
+    renderWithTheme(<ExploreSidebar items={items} />)
 
     expect(screen.getByRole('button', { name: /filtrar/i })).toBeInTheDocument()
   })
