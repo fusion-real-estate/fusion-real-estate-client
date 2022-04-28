@@ -92,7 +92,7 @@ const ExploreSidebar = ({
 
       <S.Footer>
         <Button fullWidth size="medium" onClick={handleFilter}>
-          Filter
+          Buscar
         </Button>
       </S.Footer>
     </S.Wrapper>
