@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
 import { Whatsapp } from '@styled-icons/boxicons-logos/Whatsapp'
@@ -28,9 +29,13 @@ const Menu = () => {
       <S.MenuGroup>
         <MediaMatch greaterThan="medium">
           <S.MenuNav>
-            <S.MenuLink href="#">Home</S.MenuLink>
+            <Link href="/" passHref>
+              <S.MenuLink href="#">Home</S.MenuLink>
+            </Link>
             <S.MenuLink href="#">Sobre</S.MenuLink>
-            <S.MenuLink href="#">Imóveis</S.MenuLink>
+            <Link href="/properties" passHref>
+              <S.MenuLink>Imóveis</S.MenuLink>
+            </Link>
             <S.MenuLink href="#">Faq</S.MenuLink>
             <S.MenuLink href="#">Contato</S.MenuLink>
           </S.MenuNav>
@@ -48,7 +53,9 @@ const Menu = () => {
         <S.MenuNav>
           <S.MenuLink href="#">Home</S.MenuLink>
           <S.MenuLink href="#">Sobre</S.MenuLink>
-          <S.MenuLink href="#">Imóveis</S.MenuLink>
+          <Link href="/properties" passHref>
+            <S.MenuLink>Imóveis</S.MenuLink>
+          </Link>
           <S.MenuLink href="#">Faq</S.MenuLink>
           <S.MenuLink href="#">Contato</S.MenuLink>
         </S.MenuNav>
