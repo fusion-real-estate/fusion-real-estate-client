@@ -1,4 +1,3 @@
-import { gql } from '@apollo/client'
 import { initializeApollo } from 'utils/apollo'
 
 import PropertiesTemplate, {
@@ -6,6 +5,8 @@ import PropertiesTemplate, {
 } from 'templates/Properties'
 
 import filterItemsMock from 'components/ExploreSidebar/mock'
+
+import { QUERY_PROPERTIES } from 'graphql/queries/properties'
 
 export default function PropertyPage(props: PropertiesTemplateProps) {
   return <PropertiesTemplate {...props} />
@@ -15,22 +16,7 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
   const { data } = await apolloClient.query({
-    query: gql`
-      query QueryProperties {
-        properties {
-          name
-          slug
-          cover {
-            url
-          }
-          rooms
-          bathrooms
-          garage
-          sqt
-          price
-        }
-      }
-    `
+    query: QUERY_PROPERTIES
   })
 
   return {
