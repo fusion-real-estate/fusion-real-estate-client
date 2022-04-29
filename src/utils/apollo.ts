@@ -17,7 +17,7 @@ function createApolloClient() {
 }
 
 export function initializeApollo(initialState = {}) {
-  const apolloClientGlobal = apolloClient ?? createApolloClient
+  const apolloClientGlobal = apolloClient ?? createApolloClient()
 
   if (initialState) {
     apolloClientGlobal.cache.restore(initialState)

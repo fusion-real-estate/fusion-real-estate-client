@@ -12,6 +12,7 @@ import Base from 'templates/Base'
 import * as S from './styles'
 
 export type HomeTemplateProps = {
+  data: any
   banners: BannerProps[]
   newFeature: CardProps[]
   newExplore: HighlightProps[]
