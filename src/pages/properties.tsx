@@ -16,7 +16,8 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
   const { data } = await apolloClient.query({
-    query: QUERY_PROPERTIES
+    query: QUERY_PROPERTIES,
+    variables: { limit: 9 }
   })
 
   return {
@@ -24,6 +25,7 @@ export async function getStaticProps() {
       revalidate: 60,
       properties: data.properties.map((item) => ({
         title: item.name,
+        address: item.street,
         img: item.cover.url,
         beds: item.bathrooms,
         bath: item.rooms,

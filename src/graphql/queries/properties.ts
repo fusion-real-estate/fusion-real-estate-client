@@ -1,9 +1,10 @@
 import { gql } from '@apollo/client'
 
 export const QUERY_PROPERTIES = gql`
-  query QueryProperties {
-    properties {
+  query QueryProperties($limit: Int!) {
+    properties(limit: $limit) {
       name
+      street
       slug
       cover {
         url
