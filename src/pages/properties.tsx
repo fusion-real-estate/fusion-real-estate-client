@@ -8,6 +8,11 @@ import filterItemsMock from 'components/ExploreSidebar/mock'
 
 import { QUERY_PROPERTIES } from 'graphql/queries/properties'
 
+import {
+  QueryProperties,
+  QueryPropertiesVariables
+} from 'graphql/generated/QueryProperties'
+
 export default function PropertyPage(props: PropertiesTemplateProps) {
   return <PropertiesTemplate {...props} />
 }
@@ -15,7 +20,10 @@ export default function PropertyPage(props: PropertiesTemplateProps) {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
-  const { data } = await apolloClient.query({
+  const { data } = await apolloClient.query<
+    QueryProperties,
+    QueryPropertiesVariables
+  >({
     query: QUERY_PROPERTIES,
     variables: { limit: 9 }
   })
@@ -26,7 +34,7 @@ export async function getStaticProps() {
       properties: data.properties.map((item) => ({
         title: item.name,
         address: item.street,
-        img: item.cover.url,
+        img: item.cover!.url,
         beds: item.bathrooms,
         bath: item.rooms,
         garage: item.garage,
@@ -34,7 +42,7 @@ export async function getStaticProps() {
         price: new Intl.NumberFormat('pt', {
           style: 'currency',
           currency: 'BRL'
-        }).format(item.price)
+        }).format(Number(item.price))
       })),
       filterItems: filterItemsMock
     }
