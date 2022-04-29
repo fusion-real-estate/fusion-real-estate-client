@@ -33,6 +33,7 @@ export async function getStaticProps() {
       revalidate: 60,
       properties: data.properties.map((item) => ({
         title: item.name,
+        slug: item.slug,
         address: item.street,
         img: item.cover!.url,
         beds: item.bathrooms,

@@ -6,6 +6,7 @@ export default {
   component: Card,
   args: {
     title: 'New Apartment Nice Wiew',
+    slug: 'luxury-family-loft-by-victoria-park',
     address: '4 W 21st St Flatiron District, New York, NY',
     beds: '4',
     bath: '1',

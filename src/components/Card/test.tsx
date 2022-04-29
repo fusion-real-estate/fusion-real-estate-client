@@ -5,6 +5,7 @@ import Card from '.'
 
 const props = {
   title: 'New Apartment Nice Wiew',
+  slug: 'luxury-family-loft-by-victoria-park',
   address: '4 W 21st St Flatiron District, New York, NY',
   beds: '4',
   bath: '1',
@@ -29,6 +30,11 @@ describe('<Card />', () => {
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
       props.img
+    )
+
+    expect(screen.getByRole('link', { name: props.slug })).toHaveAttribute(
+      'href',
+      `/property/${props.slug}`
     )
   })
 

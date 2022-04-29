@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 
 import Icon from '@mdi/react'
@@ -8,6 +10,7 @@ import * as S from './styles'
 
 export type CardProps = {
   title: string
+  slug: string
   address: string
   beds: string
   bath: string
@@ -22,6 +25,7 @@ export type CardProps = {
 
 const Card = ({
   title,
+  slug,
   address,
   beds,
   bath,
@@ -39,14 +43,18 @@ const Card = ({
         {ribbon}
       </Ribbon>
     )}
-    <S.ImageBox>
-      <img src={img} alt={title} />
-    </S.ImageBox>
+    <Link href={`property/${slug}`} passHref>
+      <S.ImageBox>
+        <img src={img} alt={title} />
+      </S.ImageBox>
+    </Link>
     <S.Content>
-      <S.Info>
-        <S.Title>{title}</S.Title>
-        <S.Address>{address}</S.Address>
-      </S.Info>
+      <Link href={`property/${slug}`} passHref>
+        <S.Info>
+          <S.Title>{title}</S.Title>
+          <S.Address>{address}</S.Address>
+        </S.Info>
+      </Link>
       <S.Box>
         <S.BoxList>
           <Icon path={mdiBedKingOutline} />
