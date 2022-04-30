@@ -3,7 +3,7 @@ import Base from 'templates/Base'
 import SingleInfo, { SingleInfoProps } from 'components/SingleInfo'
 import Gallery, { GalleryImageProps } from 'components/Gallery'
 import TextContent from 'components/TextContent'
-import Facilities, { FacilitiesProps } from 'components/Facilities'
+import Facilities from 'components/Facilities'
 
 import * as S from './styles'
 
@@ -11,7 +11,7 @@ export type PropertyTemplateProps = {
   propertyInfo: SingleInfoProps
   gallery: GalleryImageProps[]
   description: string
-  facilities: FacilitiesProps
+  facilities: string
 }
 
 const Property = ({
@@ -34,7 +34,7 @@ const Property = ({
         </S.SectionDescription>
 
         <S.SectionFacilities>
-          <Facilities {...facilities} />
+          <Facilities title="Facilidades" content={facilities} />
         </S.SectionFacilities>
       </S.SectionPropertyInfo>
     </>

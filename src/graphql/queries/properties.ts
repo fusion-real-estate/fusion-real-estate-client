@@ -17,3 +17,39 @@ export const QUERY_PROPERTIES = gql`
     }
   }
 `
+
+export const QUERY_PROPERTY_BY_SLUG = gql`
+  query QueryPropertyBySlug($slug: String) {
+    properties(where: { slug: $slug }) {
+      name
+      street
+      price
+      status
+      description
+      cover {
+        url
+        alternativeText
+      }
+      rooms
+      bathrooms
+      garage
+      sqt
+      category {
+        name
+      }
+      location {
+        name
+      }
+      label
+      year
+      slug
+      gallery {
+        url
+        alternativeText
+      }
+      facilities {
+        name
+      }
+    }
+  }
+`

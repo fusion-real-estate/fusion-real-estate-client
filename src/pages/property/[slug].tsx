@@ -1,61 +1,85 @@
+import { GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
+import { initializeApollo } from 'utils/apollo'
+
 import Property, { PropertyTemplateProps } from 'templates/Property'
 
-import galleryMock from 'components/Gallery/mock'
+import {
+  QueryProperties,
+  QueryPropertiesVariables
+} from 'graphql/generated/QueryProperties'
+import {
+  QUERY_PROPERTIES,
+  QUERY_PROPERTY_BY_SLUG
+} from 'graphql/queries/properties'
+import {
+  QueryPropertyBySlug,
+  QueryPropertyBySlugVariables
+} from 'graphql/generated/QueryPropertyBySlug'
+
+const apolloClient = initializeApollo()
 
 export default function Index(props: PropertyTemplateProps) {
+  const router = useRouter()
+
+  if (router.isFallback) return null
+
   return <Property {...props} />
 }
 
 export async function getStaticPaths() {
-  return {
-    paths: [{ params: { slug: 'luxury-family-loft-by-victoria-park' } }],
-    fallback: false
-  }
+  const { data } = await apolloClient.query<
+    QueryProperties,
+    QueryPropertiesVariables
+  >({
+    query: QUERY_PROPERTIES,
+    variables: { limit: 9 }
+  })
+
+  const paths = data.properties.map(({ slug }) => ({
+    params: { slug }
+  }))
+
+  return { paths, fallback: true }
 }
 
-export async function getStaticProps() {
-  const descriptionHTML = `<p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      tempore. Nulla accusamus tempora quaerat repellat accusantium
-      voluptatem reprehenderit iste dolorem quam rerum laboriosam architecto
-      eos, fugiat ab vero facilis soluta.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      tempore. Nulla accusamus tempora quaerat repellat accusantium
-      voluptatem reprehenderit iste dolorem quam rerum laboriosam architecto
-      eos, fugiat ab vero facilis soluta.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-      tempore. Nulla accusamus tempora quaerat repellat accusantium
-      voluptatem reprehenderit iste dolorem quam rerum laboriosam architecto
-      eos, fugiat ab vero facilis soluta.
-    </p>
-    `
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { data } = await apolloClient.query<
+    QueryPropertyBySlug,
+    QueryPropertyBySlugVariables
+  >({
+    query: QUERY_PROPERTY_BY_SLUG,
+    variables: { slug: `${params?.slug}` }
+  })
+
+  if (!data.properties.length) {
+    return { notFound: true }
+  }
+
+  const property = data.properties[0]
 
   return {
     props: {
+      revalidate: 60,
       propertyInfo: {
-        title: 'Luxury Family Loft by Victoria Park',
-        subtitle: 'Quincy St, Brooklyn, NY, USA',
-        feature: 'Destaque',
-        status: 'Venda',
+        title: property.name,
+        subtitle: property.street,
+        feature: property.label,
+        status: property.status,
         offer: 'Oferta',
-        beds: '4 Quartos',
-        bath: '1 Banheiros',
-        garage: '1 Garagem',
-        sqt: '150 Metros',
-        price: '1200.000,00',
-        type: 'Apartamento'
+        beds: `${property.rooms} Quartos`,
+        bath: `${property.bathrooms} Banheiros`,
+        garage: `${property.garage} Garagem`,
+        sqt: `${property.sqt} Metros`,
+        price: `${new Intl.NumberFormat('pt', {
+          style: 'currency',
+          currency: 'BRL'
+        }).format(Number(property.price))}`,
+        type: property.category?.name
       },
-      gallery: galleryMock,
-      description: descriptionHTML,
-      facilities: {
-        title: 'Facilities',
-        airConditioning: 'Air Conditioning',
-        barbeque: 'Barbeque'
-      }
+      gallery: property.gallery,
+      description: property.description,
+      facilities: property.facilities.map((item) => item.name)
     }
   }
 }

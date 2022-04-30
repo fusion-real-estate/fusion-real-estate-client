@@ -32,7 +32,7 @@ describe('<Card />', () => {
       props.img
     )
 
-    expect(screen.getByRole('link', { name: props.slug })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
       'href',
       `/property/${props.slug}`
     )
