@@ -13,7 +13,7 @@ const props = {
   bath: '1',
   garage: '1',
   sqt: '150',
-  price: '1200.000,00',
+  price: 1200.0,
   type: 'Apartamento'
 }
 

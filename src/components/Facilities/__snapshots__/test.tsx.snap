@@ -67,7 +67,9 @@ exports[`<Facilities /> should render the heading 1`] = `
     >
       <p
         class="c3"
-      />
+      >
+        Barbeque
+      </p>
     </div>
   </div>
 </main>

@@ -5,8 +5,7 @@ import Facilities from '.'
 
 const props = {
   title: 'Facilities',
-  airConditioning: 'Air Conditioning',
-  barbeque: 'Barbeque'
+  content: 'Barbeque'
 }
 
 describe('<Facilities />', () => {
