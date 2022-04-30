@@ -6,6 +6,8 @@ import Icon from '@mdi/react'
 
 import { mdiBedKingOutline, mdiShower, mdiCar, mdiFormTextarea } from '@mdi/js'
 
+import formatPrice from 'utils/format-price'
+
 import * as S from './styles'
 
 export type CardProps = {
@@ -17,7 +19,7 @@ export type CardProps = {
   garage: string
   sqt: string
   img: string
-  price: string
+  price: number
   ribbon?: React.ReactNode
   ribbonColor?: RibbonColors
   ribbonSize?: RibbonSizes
@@ -74,7 +76,7 @@ const Card = ({
         </S.BoxList>
       </S.Box>
       <S.BuyBox>
-        <S.Price>{price}</S.Price>
+        <S.Price>{formatPrice(price)}</S.Price>
       </S.BuyBox>
     </S.Content>
   </S.Wrapper>

@@ -4,6 +4,8 @@ import Icon from '@mdi/react'
 
 import { mdiBedKingOutline, mdiShower, mdiCar, mdiFormTextarea } from '@mdi/js'
 
+import formatPrice from 'utils/format-price'
+
 import * as S from './styles'
 
 export type SingleInfoProps = {
@@ -16,7 +18,7 @@ export type SingleInfoProps = {
   bath: string
   garage: string
   sqt: string
-  price: string
+  price: number
   type: string
 }
 
@@ -68,7 +70,7 @@ const SingleInfo = ({
     </S.SingleContainer>
 
     <S.BuyTypeBox>
-      <S.Price>{price}</S.Price>
+      <S.Price>{formatPrice(price)}</S.Price>
       <S.Type>{type}</S.Type>
     </S.BuyTypeBox>
   </S.Wrapper>

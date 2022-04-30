@@ -71,13 +71,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         bath: `${property.bathrooms} Banheiros`,
         garage: `${property.garage} Garagem`,
         sqt: `${property.sqt} Metros`,
-        price: `${new Intl.NumberFormat('pt', {
-          style: 'currency',
-          currency: 'BRL'
-        }).format(Number(property.price))}`,
+        price: property.price,
         type: property.category?.name
       },
-      gallery: property.gallery,
+      gallery: property.gallery.map((image) => ({
+        src: image.url,
+        label: image.alternativeText
+      })),
       description: property.description,
       facilities: property.facilities.map((item) => item.name)
     }

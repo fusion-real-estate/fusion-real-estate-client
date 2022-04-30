@@ -40,10 +40,7 @@ export async function getStaticProps() {
         bath: item.rooms,
         garage: item.garage,
         sqt: item.sqt,
-        price: new Intl.NumberFormat('pt', {
-          style: 'currency',
-          currency: 'BRL'
-        }).format(Number(item.price))
+        price: item.price
       })),
       filterItems: filterItemsMock
     }
