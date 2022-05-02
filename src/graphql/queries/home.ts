@@ -19,6 +19,10 @@ export const QUERY_HOME = gql`
         url
       }
     }
+
+    promotionProperties: properties(where: { label: "hot" }, limit: 8) {
+      ...PropertyFragment
+    }
   }
 
   ${BannerFragment}

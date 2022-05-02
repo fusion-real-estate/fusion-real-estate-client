@@ -16,7 +16,7 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
   const {
-    data: { banners, featuredProperties, categories }
+    data: { banners, featuredProperties, categories, promotionProperties }
   } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
   return {
@@ -50,7 +50,17 @@ export async function getStaticProps() {
         title: category.name,
         subtitle: '700 Imóveis'
       })),
-      newRecents: cardsMock,
+      newRecents: promotionProperties.map((promotion) => ({
+        title: promotion.name,
+        slug: promotion.slug,
+        address: promotion.street,
+        beds: promotion.bathrooms,
+        bath: promotion.rooms,
+        garage: promotion.garage,
+        sqt: promotion.sqt,
+        img: promotion.cover?.url,
+        price: promotion.price
+      })),
       newHighlight: highlightMock
     }
   }

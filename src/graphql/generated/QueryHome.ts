@@ -65,8 +65,27 @@ export interface QueryHome_categories {
   cover: QueryHome_categories_cover | null;
 }
 
+export interface QueryHome_promotionProperties_cover {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface QueryHome_promotionProperties {
+  __typename: "Property";
+  name: string;
+  street: string;
+  slug: string;
+  cover: QueryHome_promotionProperties_cover | null;
+  rooms: number;
+  bathrooms: number;
+  garage: number | null;
+  sqt: number | null;
+  price: number | null;
+}
+
 export interface QueryHome {
   banners: QueryHome_banners[];
   featuredProperties: QueryHome_featuredProperties[];
   categories: QueryHome_categories[];
+  promotionProperties: QueryHome_promotionProperties[];
 }

@@ -50,7 +50,10 @@ const Home = ({
       </S.SectionDefault>
 
       <S.SectionDefault>
-        <Showcase title="Recentes" subtitle="Imóveis recentes" />
+        <Showcase
+          title="Promoções"
+          subtitle="Imóveis em promoção, não perca tempo!"
+        />
         <CardSlider items={newRecents} />
       </S.SectionDefault>
 
