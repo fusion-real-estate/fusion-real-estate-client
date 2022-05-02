@@ -376,6 +376,43 @@ type deleteFacilityPayload {
   facility: Facilities
 }
 
+type Home {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  featured: ComponentPageSection
+  poularProperties: ComponentPagePoularProperties
+  published_at: DateTime
+}
+
+input HomeInput {
+  featured: ComponentPageSectionInput
+  poularProperties: ComponentPagePoularPropertyInput
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editHomeInput {
+  featured: editComponentPageSectionInput
+  poularProperties: editComponentPagePoularPropertyInput
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input updateHomeInput {
+  data: editHomeInput
+}
+
+type updateHomePayload {
+  home: Home
+}
+
+type deleteHomePayload {
+  home: Home
+}
+
 type Location {
   id: ID!
   created_at: DateTime!
@@ -1235,6 +1272,43 @@ input editComponentPageButtonInput {
   link: String
 }
 
+type ComponentPageHighlight {
+  id: ID!
+  title: String!
+  subtitle: String!
+  img: UploadFile
+}
+
+input ComponentPageHighlightInput {
+  title: String!
+  subtitle: String!
+  img: ID
+}
+
+input editComponentPageHighlightInput {
+  id: ID
+  title: String
+  subtitle: String
+  img: ID
+}
+
+type ComponentPagePoularProperties {
+  id: ID!
+  title: String!
+  properties(sort: String, limit: Int, start: Int, where: JSON): [Property!]!
+}
+
+input ComponentPagePoularPropertyInput {
+  title: String!
+  properties: [ID]
+}
+
+input editComponentPagePoularPropertyInput {
+  id: ID
+  title: String
+  properties: [ID]
+}
+
 enum ENUM_COMPONENTPAGERIBBON_COLOR {
   primary
   secondary
@@ -1265,7 +1339,24 @@ input editComponentPageRibbonInput {
   size: ENUM_COMPONENTPAGERIBBON_SIZE
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Banner | BannerConnection | BannerAggregator | BannerGroupBy | BannerConnectionId | BannerConnectionCreated_at | BannerConnectionUpdated_at | BannerConnectionImage | BannerConnectionTitle | BannerConnectionSubtitle | BannerConnectionButton | BannerConnectionRibbon | createBannerPayload | updateBannerPayload | deleteBannerPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionName | CategoryConnectionSlug | CategoryConnectionCover | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Facilities | FacilitiesConnection | FacilitiesAggregator | FacilitiesGroupBy | FacilitiesConnectionId | FacilitiesConnectionCreated_at | FacilitiesConnectionUpdated_at | FacilitiesConnectionName | createFacilityPayload | updateFacilityPayload | deleteFacilityPayload | Location | LocationConnection | LocationAggregator | LocationGroupBy | LocationConnectionId | LocationConnectionCreated_at | LocationConnectionUpdated_at | LocationConnectionName | LocationConnectionSlug | LocationConnectionCover | createLocationPayload | updateLocationPayload | deleteLocationPayload | Property | PropertyConnection | PropertyAggregator | PropertyAggregatorSum | PropertyAggregatorAvg | PropertyAggregatorMin | PropertyAggregatorMax | PropertyGroupBy | PropertyConnectionId | PropertyConnectionCreated_at | PropertyConnectionUpdated_at | PropertyConnectionName | PropertyConnectionStreet | PropertyConnectionPrice | PropertyConnectionStatus | PropertyConnectionDescription | PropertyConnectionCover | PropertyConnectionRooms | PropertyConnectionBathrooms | PropertyConnectionGarage | PropertyConnectionSqt | PropertyConnectionCategory | PropertyConnectionLocation | PropertyConnectionLabel | PropertyConnectionYear | PropertyConnectionSlug | PropertyConnectionPublished_at | createPropertyPayload | updatePropertyPayload | deletePropertyPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentPageButton | ComponentPageRibbon
+type ComponentPageSection {
+  id: ID!
+  title: String
+  highlight: ComponentPageHighlight
+}
+
+input ComponentPageSectionInput {
+  title: String
+  highlight: ComponentPageHighlightInput
+}
+
+input editComponentPageSectionInput {
+  id: ID
+  title: String
+  highlight: editComponentPageHighlightInput
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Banner | BannerConnection | BannerAggregator | BannerGroupBy | BannerConnectionId | BannerConnectionCreated_at | BannerConnectionUpdated_at | BannerConnectionImage | BannerConnectionTitle | BannerConnectionSubtitle | BannerConnectionButton | BannerConnectionRibbon | createBannerPayload | updateBannerPayload | deleteBannerPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionName | CategoryConnectionSlug | CategoryConnectionCover | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Facilities | FacilitiesConnection | FacilitiesAggregator | FacilitiesGroupBy | FacilitiesConnectionId | FacilitiesConnectionCreated_at | FacilitiesConnectionUpdated_at | FacilitiesConnectionName | createFacilityPayload | updateFacilityPayload | deleteFacilityPayload | Home | updateHomePayload | deleteHomePayload | Location | LocationConnection | LocationAggregator | LocationGroupBy | LocationConnectionId | LocationConnectionCreated_at | LocationConnectionUpdated_at | LocationConnectionName | LocationConnectionSlug | LocationConnectionCover | createLocationPayload | updateLocationPayload | deleteLocationPayload | Property | PropertyConnection | PropertyAggregator | PropertyAggregatorSum | PropertyAggregatorAvg | PropertyAggregatorMin | PropertyAggregatorMax | PropertyGroupBy | PropertyConnectionId | PropertyConnectionCreated_at | PropertyConnectionUpdated_at | PropertyConnectionName | PropertyConnectionStreet | PropertyConnectionPrice | PropertyConnectionStatus | PropertyConnectionDescription | PropertyConnectionCover | PropertyConnectionRooms | PropertyConnectionBathrooms | PropertyConnectionGarage | PropertyConnectionSqt | PropertyConnectionCategory | PropertyConnectionLocation | PropertyConnectionLabel | PropertyConnectionYear | PropertyConnectionSlug | PropertyConnectionPublished_at | createPropertyPayload | updatePropertyPayload | deletePropertyPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentPageButton | ComponentPageHighlight | ComponentPagePoularProperties | ComponentPageRibbon | ComponentPageSection
 
 input InputID {
   id: ID!
@@ -1293,6 +1384,7 @@ type Query {
   facility(id: ID!, publicationState: PublicationState): Facilities
   facilities(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Facilities!]!
   facilitiesConnection(sort: String, limit: Int, start: Int, where: JSON): FacilitiesConnection
+  home(publicationState: PublicationState): Home
   location(id: ID!, publicationState: PublicationState): Location
   locations(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Location!]!
   locationsConnection(sort: String, limit: Int, start: Int, where: JSON): LocationConnection
@@ -1321,6 +1413,8 @@ type Mutation {
   createFacility(input: createFacilityInput): createFacilityPayload
   updateFacility(input: updateFacilityInput): updateFacilityPayload
   deleteFacility(input: deleteFacilityInput): deleteFacilityPayload
+  updateHome(input: updateHomeInput): updateHomePayload
+  deleteHome: deleteHomePayload
   createLocation(input: createLocationInput): createLocationPayload
   updateLocation(input: updateLocationInput): updateLocationPayload
   deleteLocation(input: deleteLocationInput): deleteLocationPayload

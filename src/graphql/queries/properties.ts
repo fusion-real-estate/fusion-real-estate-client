@@ -1,21 +1,14 @@
 import { gql } from '@apollo/client'
+import { PropertyFragment } from 'graphql/fragments/property'
 
 export const QUERY_PROPERTIES = gql`
   query QueryProperties($limit: Int!) {
     properties(limit: $limit) {
-      name
-      street
-      slug
-      cover {
-        url
-      }
-      rooms
-      bathrooms
-      garage
-      sqt
-      price
+      ...PropertyFragment
     }
   }
+
+  ${PropertyFragment}
 `
 
 export const QUERY_PROPERTY_BY_SLUG = gql`
