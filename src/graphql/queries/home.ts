@@ -34,10 +34,27 @@ export const QUERY_HOME = gql`
     sections: home {
       featured {
         title
+        subtitle
+      }
+
+      categories {
+        title
+        subtitle
+      }
+
+      promotion {
+        title
+        subtitle
+      }
+
+      location {
+        title
+        subtitle
       }
 
       poularProperties {
         title
+        subtitle
         properties(limit: 8) {
           ...PropertyFragment
         }

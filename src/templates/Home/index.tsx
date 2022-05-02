@@ -18,6 +18,16 @@ export type HomeTemplateProps = {
   newRecents: CardProps[]
   newHighlight: HighlightProps[]
   poularProperties: CardProps[]
+  newFeatureTitle: string
+  categoriesTitle: string
+  promotionTitle: string
+  locationTitle: string
+  popularTitle: string
+  newFeatureSubTitle: string
+  categoriesSubTitle: string
+  promotionSubTitle: string
+  locationSubTitle: string
+  popularSubTitle: string
 }
 
 const Home = ({
@@ -26,7 +36,17 @@ const Home = ({
   newExplore,
   newRecents,
   newHighlight,
-  poularProperties
+  poularProperties,
+  newFeatureTitle,
+  categoriesTitle,
+  promotionTitle,
+  locationTitle,
+  popularTitle,
+  newFeatureSubTitle,
+  categoriesSubTitle,
+  promotionSubTitle,
+  locationSubTitle,
+  popularSubTitle
 }: HomeTemplateProps) => (
   <Base>
     <Container>
@@ -36,39 +56,30 @@ const Home = ({
 
       <S.SectionDefault>
         <Showcase
-          title="Destaques"
-          subtitle="Imóveis em destaques"
+          title={newFeatureTitle}
+          subtitle={newFeatureSubTitle}
           color="black"
         />
         <CardSlider items={newFeature} />
       </S.SectionDefault>
 
       <S.SectionDefault>
-        <Showcase
-          title="Categorias"
-          subtitle="Faça sua pesquisa por categoria de imóvel"
-        />
+        <Showcase title={categoriesTitle} subtitle={categoriesSubTitle} />
         <HighlightSlider items={newExplore} />
       </S.SectionDefault>
 
       <S.SectionDefault>
-        <Showcase
-          title="Promoções"
-          subtitle="Imóveis em promoção, não perca tempo!"
-        />
+        <Showcase title={promotionTitle} subtitle={promotionSubTitle} />
         <CardSlider items={newRecents} />
       </S.SectionDefault>
 
       <S.SectionDefault>
-        <Showcase
-          title="Pesquisa por cidade"
-          subtitle="Faça sua busca por cidade"
-        />
+        <Showcase title={locationTitle} subtitle={locationSubTitle} />
         <HighlightSlider items={newHighlight} />
       </S.SectionDefault>
 
       <S.SectionDefault>
-        <Showcase title="Populares" subtitle="Imóveis populares" />
+        <Showcase title={popularTitle} subtitle={popularSubTitle} />
         <CardSlider items={poularProperties} />
       </S.SectionDefault>
     </Container>

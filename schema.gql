@@ -382,12 +382,18 @@ type Home {
   updated_at: DateTime!
   featured: ComponentPageSection
   poularProperties: ComponentPagePoularProperties
+  categories: ComponentPageSection
+  promotion: ComponentPageSection
+  location: ComponentPageSection
   published_at: DateTime
 }
 
 input HomeInput {
   featured: ComponentPageSectionInput
   poularProperties: ComponentPagePoularPropertyInput
+  categories: ComponentPageSectionInput
+  promotion: ComponentPageSectionInput
+  location: ComponentPageSectionInput
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -396,6 +402,9 @@ input HomeInput {
 input editHomeInput {
   featured: editComponentPageSectionInput
   poularProperties: editComponentPagePoularPropertyInput
+  categories: editComponentPageSectionInput
+  promotion: editComponentPageSectionInput
+  location: editComponentPageSectionInput
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -1295,18 +1304,21 @@ input editComponentPageHighlightInput {
 type ComponentPagePoularProperties {
   id: ID!
   title: String!
+  subtitle: String
   properties(sort: String, limit: Int, start: Int, where: JSON): [Property!]!
 }
 
 input ComponentPagePoularPropertyInput {
   title: String!
   properties: [ID]
+  subtitle: String
 }
 
 input editComponentPagePoularPropertyInput {
   id: ID
   title: String
   properties: [ID]
+  subtitle: String
 }
 
 enum ENUM_COMPONENTPAGERIBBON_COLOR {
@@ -1341,19 +1353,19 @@ input editComponentPageRibbonInput {
 
 type ComponentPageSection {
   id: ID!
-  title: String
-  highlight: ComponentPageHighlight
+  title: String!
+  subtitle: String
 }
 
 input ComponentPageSectionInput {
-  title: String
-  highlight: ComponentPageHighlightInput
+  title: String!
+  subtitle: String
 }
 
 input editComponentPageSectionInput {
   id: ID
   title: String
-  highlight: editComponentPageHighlightInput
+  subtitle: String
 }
 
 union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Banner | BannerConnection | BannerAggregator | BannerGroupBy | BannerConnectionId | BannerConnectionCreated_at | BannerConnectionUpdated_at | BannerConnectionImage | BannerConnectionTitle | BannerConnectionSubtitle | BannerConnectionButton | BannerConnectionRibbon | createBannerPayload | updateBannerPayload | deleteBannerPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionName | CategoryConnectionSlug | CategoryConnectionCover | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Facilities | FacilitiesConnection | FacilitiesAggregator | FacilitiesGroupBy | FacilitiesConnectionId | FacilitiesConnectionCreated_at | FacilitiesConnectionUpdated_at | FacilitiesConnectionName | createFacilityPayload | updateFacilityPayload | deleteFacilityPayload | Home | updateHomePayload | deleteHomePayload | Location | LocationConnection | LocationAggregator | LocationGroupBy | LocationConnectionId | LocationConnectionCreated_at | LocationConnectionUpdated_at | LocationConnectionName | LocationConnectionSlug | LocationConnectionCover | createLocationPayload | updateLocationPayload | deleteLocationPayload | Property | PropertyConnection | PropertyAggregator | PropertyAggregatorSum | PropertyAggregatorAvg | PropertyAggregatorMin | PropertyAggregatorMax | PropertyGroupBy | PropertyConnectionId | PropertyConnectionCreated_at | PropertyConnectionUpdated_at | PropertyConnectionName | PropertyConnectionStreet | PropertyConnectionPrice | PropertyConnectionStatus | PropertyConnectionDescription | PropertyConnectionCover | PropertyConnectionRooms | PropertyConnectionBathrooms | PropertyConnectionGarage | PropertyConnectionSqt | PropertyConnectionCategory | PropertyConnectionLocation | PropertyConnectionLabel | PropertyConnectionYear | PropertyConnectionSlug | PropertyConnectionPublished_at | createPropertyPayload | updatePropertyPayload | deletePropertyPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentPageButton | ComponentPageHighlight | ComponentPagePoularProperties | ComponentPageRibbon | ComponentPageSection

@@ -38,6 +38,8 @@ export async function getStaticProps() {
           ribbonSize: banner.ribbon.size
         })
       })),
+      newFeatureTitle: sections?.featured?.title,
+      newFeatureSubTitle: sections?.featured?.subtitle,
       newFeature: featuredProperties.map((property) => ({
         title: property.name,
         slug: property.slug,
@@ -49,11 +51,15 @@ export async function getStaticProps() {
         img: property.cover?.url,
         price: property.price
       })),
+      categoriesTitle: sections?.categories?.title,
+      categoriesSubTitle: sections?.categories?.subtitle,
       newExplore: categories.map((category) => ({
         img: category.cover?.url,
         title: category.name,
         subtitle: '700 Imóveis'
       })),
+      promotionTitle: sections?.promotion?.title,
+      promotionSubTitle: sections?.promotion?.subtitle,
       newRecents: promotionProperties.map((promotion) => ({
         title: promotion.name,
         slug: promotion.slug,
@@ -65,11 +71,15 @@ export async function getStaticProps() {
         img: promotion.cover?.url,
         price: promotion.price
       })),
+      locationTitle: sections?.location?.title,
+      locationSubTitle: sections?.location?.subtitle,
       newHighlight: locations.map((location) => ({
         img: location.cover?.url,
         title: location.name,
         subtitle: '700 Imóveis'
       })),
+      popularTitle: sections?.poularProperties?.title,
+      popularSubTitle: sections?.poularProperties?.subtitle,
       poularProperties: sections!.poularProperties!.properties.map(
         (popular) => ({
           title: popular.name,

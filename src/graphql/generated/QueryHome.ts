@@ -96,7 +96,26 @@ export interface QueryHome_locations {
 
 export interface QueryHome_sections_featured {
   __typename: "ComponentPageSection";
-  title: string | null;
+  title: string;
+  subtitle: string | null;
+}
+
+export interface QueryHome_sections_categories {
+  __typename: "ComponentPageSection";
+  title: string;
+  subtitle: string | null;
+}
+
+export interface QueryHome_sections_promotion {
+  __typename: "ComponentPageSection";
+  title: string;
+  subtitle: string | null;
+}
+
+export interface QueryHome_sections_location {
+  __typename: "ComponentPageSection";
+  title: string;
+  subtitle: string | null;
 }
 
 export interface QueryHome_sections_poularProperties_properties_cover {
@@ -120,12 +139,16 @@ export interface QueryHome_sections_poularProperties_properties {
 export interface QueryHome_sections_poularProperties {
   __typename: "ComponentPagePoularProperties";
   title: string;
+  subtitle: string | null;
   properties: QueryHome_sections_poularProperties_properties[];
 }
 
 export interface QueryHome_sections {
   __typename: "Home";
   featured: QueryHome_sections_featured | null;
+  categories: QueryHome_sections_categories | null;
+  promotion: QueryHome_sections_promotion | null;
+  location: QueryHome_sections_location | null;
   poularProperties: QueryHome_sections_poularProperties | null;
 }
 
