@@ -43,8 +43,8 @@ const Home = ({
 
       <S.SectionDefault>
         <Showcase
-          title="Explore"
-          subtitle="Faça sua pesquisa por tipo de imóvel"
+          title="Categorias"
+          subtitle="Faça sua pesquisa por categoria de imóvel"
         />
         <HighlightSlider items={newExplore} />
       </S.SectionDefault>

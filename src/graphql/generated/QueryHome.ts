@@ -54,7 +54,19 @@ export interface QueryHome_featuredProperties {
   price: number | null;
 }
 
+export interface QueryHome_categories_cover {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface QueryHome_categories {
+  __typename: "Category";
+  name: string | null;
+  cover: QueryHome_categories_cover | null;
+}
+
 export interface QueryHome {
   banners: QueryHome_banners[];
   featuredProperties: QueryHome_featuredProperties[];
+  categories: QueryHome_categories[];
 }

@@ -12,6 +12,13 @@ export const QUERY_HOME = gql`
     featuredProperties: properties(where: { label: "featured" }, limit: 8) {
       ...PropertyFragment
     }
+
+    categories {
+      name
+      cover {
+        url
+      }
+    }
   }
 
   ${BannerFragment}
