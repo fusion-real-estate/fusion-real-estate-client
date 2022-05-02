@@ -1,8 +1,5 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
 
-import cardsMock from 'components/CardSlider/mock'
-import highlightMock from 'components/HighlightSlider/mock'
-
 import { initializeApollo } from 'utils/apollo'
 
 import { QueryHome } from 'graphql/generated/QueryHome'
