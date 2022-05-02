@@ -83,9 +83,21 @@ export interface QueryHome_promotionProperties {
   price: number | null;
 }
 
+export interface QueryHome_locations_cover {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface QueryHome_locations {
+  __typename: "Location";
+  name: string;
+  cover: QueryHome_locations_cover | null;
+}
+
 export interface QueryHome {
   banners: QueryHome_banners[];
   featuredProperties: QueryHome_featuredProperties[];
   categories: QueryHome_categories[];
   promotionProperties: QueryHome_promotionProperties[];
+  locations: QueryHome_locations[];
 }

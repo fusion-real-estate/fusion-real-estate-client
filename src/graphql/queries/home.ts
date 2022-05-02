@@ -23,6 +23,13 @@ export const QUERY_HOME = gql`
     promotionProperties: properties(where: { label: "hot" }, limit: 8) {
       ...PropertyFragment
     }
+
+    locations {
+      name
+      cover {
+        url
+      }
+    }
   }
 
   ${BannerFragment}
