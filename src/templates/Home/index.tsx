@@ -33,7 +33,11 @@ const Home = ({
       </S.SectionBanner>
 
       <S.SectionDefault>
-        <Showcase title="Destaques" subtitle="Imóveis em destaques" />
+        <Showcase
+          title="Destaques"
+          subtitle="Imóveis em destaques"
+          color="black"
+        />
         <CardSlider items={newFeature} />
       </S.SectionDefault>
 
