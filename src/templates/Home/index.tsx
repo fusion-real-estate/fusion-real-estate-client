@@ -17,6 +17,7 @@ export type HomeTemplateProps = {
   newExplore: HighlightProps[]
   newRecents: CardProps[]
   newHighlight: HighlightProps[]
+  poularProperties: CardProps[]
 }
 
 const Home = ({
@@ -24,7 +25,8 @@ const Home = ({
   newFeature,
   newExplore,
   newRecents,
-  newHighlight
+  newHighlight,
+  poularProperties
 }: HomeTemplateProps) => (
   <Base>
     <Container>
@@ -63,6 +65,11 @@ const Home = ({
           subtitle="Faça sua busca por cidade"
         />
         <HighlightSlider items={newHighlight} />
+      </S.SectionDefault>
+
+      <S.SectionDefault>
+        <Showcase title="Populares" subtitle="Imóveis populares" />
+        <CardSlider items={poularProperties} />
       </S.SectionDefault>
     </Container>
   </Base>

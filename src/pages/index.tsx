@@ -18,7 +18,8 @@ export async function getStaticProps() {
       featuredProperties,
       categories,
       promotionProperties,
-      locations
+      locations,
+      sections
     }
   } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
@@ -68,7 +69,20 @@ export async function getStaticProps() {
         img: location.cover?.url,
         title: location.name,
         subtitle: '700 Imóveis'
-      }))
+      })),
+      poularProperties: sections!.poularProperties!.properties.map(
+        (popular) => ({
+          title: popular.name,
+          slug: popular.slug,
+          address: popular.street,
+          beds: popular.bathrooms,
+          bath: popular.rooms,
+          garage: popular.garage,
+          sqt: popular.sqt,
+          img: popular.cover?.url,
+          price: popular.price
+        })
+      )
     }
   }
 }

@@ -30,6 +30,19 @@ export const QUERY_HOME = gql`
         url
       }
     }
+
+    sections: home {
+      featured {
+        title
+      }
+
+      poularProperties {
+        title
+        properties(limit: 8) {
+          ...PropertyFragment
+        }
+      }
+    }
   }
 
   ${BannerFragment}

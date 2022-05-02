@@ -94,10 +94,46 @@ export interface QueryHome_locations {
   cover: QueryHome_locations_cover | null;
 }
 
+export interface QueryHome_sections_featured {
+  __typename: "ComponentPageSection";
+  title: string | null;
+}
+
+export interface QueryHome_sections_poularProperties_properties_cover {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface QueryHome_sections_poularProperties_properties {
+  __typename: "Property";
+  name: string;
+  street: string;
+  slug: string;
+  cover: QueryHome_sections_poularProperties_properties_cover | null;
+  rooms: number;
+  bathrooms: number;
+  garage: number | null;
+  sqt: number | null;
+  price: number | null;
+}
+
+export interface QueryHome_sections_poularProperties {
+  __typename: "ComponentPagePoularProperties";
+  title: string;
+  properties: QueryHome_sections_poularProperties_properties[];
+}
+
+export interface QueryHome_sections {
+  __typename: "Home";
+  featured: QueryHome_sections_featured | null;
+  poularProperties: QueryHome_sections_poularProperties | null;
+}
+
 export interface QueryHome {
   banners: QueryHome_banners[];
   featuredProperties: QueryHome_featuredProperties[];
   categories: QueryHome_categories[];
   promotionProperties: QueryHome_promotionProperties[];
   locations: QueryHome_locations[];
+  sections: QueryHome_sections | null;
 }
