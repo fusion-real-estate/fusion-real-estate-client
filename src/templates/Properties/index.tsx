@@ -41,28 +41,33 @@ const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
     <Base>
       <S.Main>
         <ExploreSidebar items={filterItems} onFilter={handleFilter} />
-        <section>
-          <Grid>
-            {data?.properties.map((item) => (
-              <Card
-                key={item.name}
-                title={item.name}
-                slug={item.slug}
-                address={item.street}
-                img={item.cover!.url}
-                beds={item.bathrooms}
-                bath={item.rooms}
-                garage={item.garage}
-                sqt={item.sqt}
-                price={item.price}
-              />
-            ))}
-          </Grid>
-          <S.ShowMore role="button" onClick={handleShowMore}>
-            <p>Carregar Mais</p>
-            <ArrowDown size={35} />
-          </S.ShowMore>
-        </section>
+
+        {loading ? (
+          <p>Carregando...</p>
+        ) : (
+          <section>
+            <Grid>
+              {data?.properties.map((item) => (
+                <Card
+                  key={item.name}
+                  title={item.name}
+                  slug={item.slug}
+                  address={item.street}
+                  img={item.cover!.url}
+                  beds={item.bathrooms}
+                  bath={item.rooms}
+                  garage={item.garage}
+                  sqt={item.sqt}
+                  price={item.price}
+                />
+              ))}
+            </Grid>
+            <S.ShowMore role="button" onClick={handleShowMore}>
+              <p>Carregar Mais</p>
+              <ArrowDown size={35} />
+            </S.ShowMore>
+          </section>
+        )}
       </S.Main>
     </Base>
   )
