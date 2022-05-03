@@ -8,14 +8,20 @@ import {
   QueryProperties,
   QueryPropertiesVariables
 } from 'graphql/generated/QueryProperties'
+
 import {
   QUERY_PROPERTIES,
   QUERY_PROPERTY_BY_SLUG
 } from 'graphql/queries/properties'
+
 import {
   QueryPropertyBySlug,
   QueryPropertyBySlugVariables
 } from 'graphql/generated/QueryPropertyBySlug'
+
+import { QueryRecommended } from 'graphql/generated/QueryRecommended'
+import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
+import { propertiesMapper } from 'utils/mappers'
 
 const apolloClient = initializeApollo()
 
@@ -44,6 +50,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  // get properties
   const { data } = await apolloClient.query<
     QueryPropertyBySlug,
     QueryPropertyBySlugVariables
@@ -57,6 +64,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const property = data.properties[0]
+
+  // get recommended
+  const { data: recommended } = await apolloClient.query<QueryRecommended>({
+    query: QUERY_RECOMMENDED
+  })
 
   return {
     props: {
@@ -79,7 +91,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         label: image.alternativeText
       })),
       description: property.description,
-      facilities: property.facilities.map((item) => item.name)
+      facilities: property.facilities.map((item) => item.name),
+      recommendedTitle: recommended.recommended?.section?.title,
+      recommendedSubTitle: recommended.recommended?.section?.subtitle,
+      recommended: propertiesMapper(
+        recommended.recommended?.section?.properties
+      )
     }
   }
 }

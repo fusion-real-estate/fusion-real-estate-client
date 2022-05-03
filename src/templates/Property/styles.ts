@@ -34,3 +34,20 @@ export const SectionDescription = styled.div`
 `
 
 export const SectionFacilities = styled.div``
+
+export const SectionDefault = styled.div`
+  ${({ theme }) => css`
+    margin-bottom: calc(${theme.spacings.xxlarge} * 2);
+
+    ${media.greaterThan('large')`
+      margin-top: -13rem;
+    `}
+
+    ${media.greaterThan('medium')`
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    `}
+  `}
+`
