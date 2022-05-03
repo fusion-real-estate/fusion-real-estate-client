@@ -5,6 +5,13 @@ import { initializeApollo } from 'utils/apollo'
 import { QueryHome } from 'graphql/generated/QueryHome'
 import { QUERY_HOME } from 'graphql/queries/home'
 
+import {
+  bannerMapper,
+  categoriesMapper,
+  locationMapper,
+  propertiesMapper
+} from 'utils/mappers'
+
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
 }
@@ -26,73 +33,22 @@ export async function getStaticProps() {
   return {
     props: {
       revalidate: 10,
-      banners: banners.map((banner) => ({
-        img: banner.image?.url,
-        title: banner.title,
-        subtitle: banner.subtitle,
-        buttonLabel: banner.button?.label,
-        buttonLink: banner.button?.link,
-        ...(banner.ribbon && {
-          ribbon: banner.ribbon.text,
-          ribbonColor: banner.ribbon.color,
-          ribbonSize: banner.ribbon.size
-        })
-      })),
+      banners: bannerMapper(banners),
       newFeatureTitle: sections?.featured?.title,
       newFeatureSubTitle: sections?.featured?.subtitle,
-      newFeature: featuredProperties.map((property) => ({
-        title: property.name,
-        slug: property.slug,
-        address: property.street,
-        beds: property.bathrooms,
-        bath: property.rooms,
-        garage: property.garage,
-        sqt: property.sqt,
-        img: property.cover?.url,
-        price: property.price
-      })),
+      newFeature: propertiesMapper(featuredProperties),
       categoriesTitle: sections?.categories?.title,
       categoriesSubTitle: sections?.categories?.subtitle,
-      newExplore: categories.map((category) => ({
-        img: category.cover?.url,
-        title: category.name,
-        subtitle: '700 Imóveis'
-      })),
+      newExplore: categoriesMapper(categories),
       promotionTitle: sections?.promotion?.title,
       promotionSubTitle: sections?.promotion?.subtitle,
-      newRecents: promotionProperties.map((promotion) => ({
-        title: promotion.name,
-        slug: promotion.slug,
-        address: promotion.street,
-        beds: promotion.bathrooms,
-        bath: promotion.rooms,
-        garage: promotion.garage,
-        sqt: promotion.sqt,
-        img: promotion.cover?.url,
-        price: promotion.price
-      })),
+      newRecents: propertiesMapper(promotionProperties),
       locationTitle: sections?.location?.title,
       locationSubTitle: sections?.location?.subtitle,
-      newHighlight: locations.map((location) => ({
-        img: location.cover?.url,
-        title: location.name,
-        subtitle: '700 Imóveis'
-      })),
+      newHighlight: locationMapper(locations),
       popularTitle: sections?.poularProperties?.title,
       popularSubTitle: sections?.poularProperties?.subtitle,
-      poularProperties: sections!.poularProperties!.properties.map(
-        (popular) => ({
-          title: popular.name,
-          slug: popular.slug,
-          address: popular.street,
-          beds: popular.bathrooms,
-          bath: popular.rooms,
-          garage: popular.garage,
-          sqt: popular.sqt,
-          img: popular.cover?.url,
-          price: popular.price
-        })
-      )
+      poularProperties: propertiesMapper(sections!.poularProperties?.properties)
     }
   }
 }
