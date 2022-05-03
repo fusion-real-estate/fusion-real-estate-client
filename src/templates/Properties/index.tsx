@@ -1,3 +1,4 @@
+import { useQuery } from '@apollo/client'
 import Card, { CardProps } from 'components/Card'
 import { Grid } from 'components/Grid'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
@@ -6,17 +7,28 @@ import Base from 'templates/Base'
 
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 
+import {
+  QueryProperties,
+  QueryPropertiesVariables
+} from 'graphql/generated/QueryProperties'
+
+import { QUERY_PROPERTIES } from 'graphql/queries/properties'
+
 import * as S from './styles'
 
 export type PropertiesTemplateProps = {
-  properties: CardProps[]
+  properties?: CardProps[]
   filterItems: ItemProps[]
 }
 
-const PropertiesTemplate = ({
-  filterItems,
-  properties = []
-}: PropertiesTemplateProps) => {
+const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
+  const { data, loading } = useQuery<QueryProperties, QueryPropertiesVariables>(
+    QUERY_PROPERTIES,
+    {
+      variables: { limit: 1 }
+    }
+  )
+
   const handleFilter = () => {
     return
   }
@@ -31,8 +43,19 @@ const PropertiesTemplate = ({
         <ExploreSidebar items={filterItems} onFilter={handleFilter} />
         <section>
           <Grid>
-            {properties.map((item) => (
-              <Card key={item.title} {...item} />
+            {data?.properties.map((item) => (
+              <Card
+                key={item.name}
+                title={item.name}
+                slug={item.slug}
+                address={item.street}
+                img={item.cover!.url}
+                beds={item.bathrooms}
+                bath={item.rooms}
+                garage={item.garage}
+                sqt={item.sqt}
+                price={item.price}
+              />
             ))}
           </Grid>
           <S.ShowMore role="button" onClick={handleShowMore}>

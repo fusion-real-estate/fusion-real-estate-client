@@ -14,12 +14,12 @@ export type CardProps = {
   title: string
   slug: string
   address: string
-  beds: string
-  bath: string
-  garage: string
-  sqt: string
+  beds: number
+  bath: number
+  garage: number | null
+  sqt: number | null
   img: string
-  price: number
+  price: number | null
   ribbon?: React.ReactNode
   ribbonColor?: RibbonColors
   ribbonSize?: RibbonSizes
@@ -76,7 +76,7 @@ const Card = ({
         </S.BoxList>
       </S.Box>
       <S.BuyBox>
-        <S.Price>{formatPrice(price)}</S.Price>
+        <S.Price>{formatPrice(Number(price))}</S.Price>
       </S.BuyBox>
     </S.Content>
   </S.Wrapper>

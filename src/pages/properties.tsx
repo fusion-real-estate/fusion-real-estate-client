@@ -25,7 +25,7 @@ export async function getStaticProps() {
     QueryPropertiesVariables
   >({
     query: QUERY_PROPERTIES,
-    variables: { limit: 9 }
+    variables: { limit: 1 }
   })
 
   return {
