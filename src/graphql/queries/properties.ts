@@ -2,8 +2,8 @@ import { gql } from '@apollo/client'
 import { PropertyFragment } from 'graphql/fragments/property'
 
 export const QUERY_PROPERTIES = gql`
-  query QueryProperties($limit: Int!) {
-    properties(limit: $limit) {
+  query QueryProperties($limit: Int!, $start: Int) {
+    properties(limit: $limit, start: $start) {
       ...PropertyFragment
     }
   }

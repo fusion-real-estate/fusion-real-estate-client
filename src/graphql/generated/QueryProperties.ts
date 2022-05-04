@@ -31,4 +31,5 @@ export interface QueryProperties {
 
 export interface QueryPropertiesVariables {
   limit: number;
+  start?: number | null;
 }

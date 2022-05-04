@@ -22,19 +22,19 @@ export type PropertiesTemplateProps = {
 }
 
 const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
-  const { data, loading } = useQuery<QueryProperties, QueryPropertiesVariables>(
-    QUERY_PROPERTIES,
-    {
-      variables: { limit: 1 }
-    }
-  )
+  const { data, loading, fetchMore } = useQuery<
+    QueryProperties,
+    QueryPropertiesVariables
+  >(QUERY_PROPERTIES, {
+    variables: { limit: 1 }
+  })
 
   const handleFilter = () => {
     return
   }
 
   const handleShowMore = () => {
-    return
+    fetchMore({ variables: { limit: 1, start: data?.properties.length } })
   }
 
   return (
