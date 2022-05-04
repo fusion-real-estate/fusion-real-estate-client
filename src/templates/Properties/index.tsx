@@ -1,4 +1,3 @@
-import { useQuery } from '@apollo/client'
 import Card, { CardProps } from 'components/Card'
 import { Grid } from 'components/Grid'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
@@ -7,12 +6,7 @@ import Base from 'templates/Base'
 
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 
-import {
-  QueryProperties,
-  QueryPropertiesVariables
-} from 'graphql/generated/QueryProperties'
-
-import { QUERY_PROPERTIES } from 'graphql/queries/properties'
+import { useQueryProperties } from 'graphql/queries/properties'
 
 import * as S from './styles'
 
@@ -22,10 +16,7 @@ export type PropertiesTemplateProps = {
 }
 
 const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
-  const { data, loading, fetchMore } = useQuery<
-    QueryProperties,
-    QueryPropertiesVariables
-  >(QUERY_PROPERTIES, {
+  const { data, loading, fetchMore } = useQueryProperties({
     variables: { limit: 1 }
   })
 
