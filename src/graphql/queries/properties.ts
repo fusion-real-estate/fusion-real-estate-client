@@ -7,8 +7,13 @@ import {
 } from 'graphql/generated/QueryProperties'
 
 export const QUERY_PROPERTIES = gql`
-  query QueryProperties($limit: Int!, $start: Int) {
-    properties(limit: $limit, start: $start) {
+  query QueryProperties(
+    $limit: Int!
+    $start: Int
+    $where: JSON
+    $sort: String
+  ) {
+    properties(limit: $limit, start: $start, where: $where, sort: $sort) {
       ...PropertyFragment
     }
   }
