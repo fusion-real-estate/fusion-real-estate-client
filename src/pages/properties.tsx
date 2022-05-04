@@ -20,10 +20,7 @@ export default function PropertyPage(props: PropertiesTemplateProps) {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
-  const { data } = await apolloClient.query<
-    QueryProperties,
-    QueryPropertiesVariables
-  >({
+  await apolloClient.query<QueryProperties, QueryPropertiesVariables>({
     query: QUERY_PROPERTIES,
     variables: { limit: 1 }
   })
@@ -31,17 +28,7 @@ export async function getStaticProps() {
   return {
     props: {
       revalidate: 60,
-      properties: data.properties.map((item) => ({
-        title: item.name,
-        slug: item.slug,
-        address: item.street,
-        img: item.cover!.url,
-        beds: item.bathrooms,
-        bath: item.rooms,
-        garage: item.garage,
-        sqt: item.sqt,
-        price: item.price
-      })),
+      initialApolloState: apolloClient.cache.extract(),
       filterItems: filterItemsMock
     }
   }
