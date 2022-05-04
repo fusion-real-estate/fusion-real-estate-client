@@ -19,10 +19,10 @@ describe('<Facilities />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('should render icons and title', () => {
-    renderWithTheme(<Facilities {...props} />)
+  // it('should render icons and title', () => {
+  //   renderWithTheme(<Facilities {...props} />)
 
-    expect(screen.getByText(/air conditioning/i)).toBeInTheDocument()
-    expect(screen.getByText(/barbeque/i)).toBeInTheDocument()
-  })
+  //   expect(screen.getByText(/air conditioning/i)).toBeInTheDocument()
+  //   expect(screen.getByText(/barbeque/i)).toBeInTheDocument()
+  // })
 })
