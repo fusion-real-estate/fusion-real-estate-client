@@ -10,7 +10,7 @@ const filterItems = [
 const queryString = {
   price_lte: 7000000,
   category: ['apartamento', 'casa'],
-  location: 'Minas Gerais',
+  location: 'Santa Catarina',
   sort: 'price:asc'
 }
 
@@ -24,7 +24,7 @@ describe('parseQueryStringToWhere()', () => {
         name_contains: ['apartamento', 'casa']
       },
       location: {
-        name_contains: 'Minas Gerais'
+        name_contains: 'Santa Catarina'
       }
     })
   })
@@ -37,7 +37,7 @@ describe('parseQueryStringToFilter()', () => {
     expect(parsedQuery).toStrictEqual({
       price_lte: 7000000,
       category: ['apartamento', 'casa'],
-      location: ['Minas Gerais'],
+      location: ['Santa Catarina'],
       sort: 'price:asc'
     })
   })

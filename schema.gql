@@ -251,8 +251,8 @@ type CategoryConnectionCover {
 input CategoryInput {
   name: String
   slug: String
-  properties: [ID]
   cover: ID
+  properties: [ID]
   created_by: ID
   updated_by: ID
 }
@@ -260,8 +260,8 @@ input CategoryInput {
 input editCategoryInput {
   name: String
   slug: String
-  properties: [ID]
   cover: ID
+  properties: [ID]
   created_by: ID
   updated_by: ID
 }
@@ -485,8 +485,8 @@ type LocationConnectionCover {
 input LocationInput {
   name: String!
   slug: String
-  properties: [ID]
   cover: ID
+  properties: [ID]
   created_by: ID
   updated_by: ID
 }
@@ -494,8 +494,8 @@ input LocationInput {
 input editLocationInput {
   name: String
   slug: String
-  properties: [ID]
   cover: ID
+  properties: [ID]
   created_by: ID
   updated_by: ID
 }

@@ -62,12 +62,12 @@ export default [
     type: 'checkbox',
     fields: [
       {
-        label: 'São Paulo',
-        name: 'sao-paulo'
-      },
-      {
         label: 'Minas Gerais',
         name: 'minas-gerais'
+      },
+      {
+        label: 'Santa Catarina',
+        name: 'santa-catarina'
       }
     ]
   }

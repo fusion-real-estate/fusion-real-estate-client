@@ -1,4 +1,7 @@
-import Card, { CardProps } from 'components/Card'
+import { useRouter } from 'next/router'
+import { ParsedUrlQueryInput } from 'querystring'
+
+import Card from 'components/Card'
 import { Grid } from 'components/Grid'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 
@@ -9,29 +12,45 @@ import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/
 import { useQueryProperties } from 'graphql/queries/properties'
 
 import * as S from './styles'
+import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
 
 export type PropertiesTemplateProps = {
-  properties?: CardProps[]
   filterItems: ItemProps[]
 }
 
 const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
+  const { push, query } = useRouter()
+
   const { data, loading, fetchMore } = useQueryProperties({
-    variables: { limit: 1 }
+    variables: {
+      limit: 9,
+      where: parseQueryStringToWhere({ queryString: query, filterItems }),
+      sort: query.sort as string | null
+    }
   })
 
-  const handleFilter = () => {
-    return
+  const handleFilter = (items: ParsedUrlQueryInput) => {
+    push({
+      pathname: '/properties',
+      query: items
+    })
   }
 
   const handleShowMore = () => {
-    fetchMore({ variables: { limit: 1, start: data?.properties.length } })
+    fetchMore({ variables: { limit: 9, start: data?.properties.length } })
   }
 
   return (
     <Base>
       <S.Main>
-        <ExploreSidebar items={filterItems} onFilter={handleFilter} />
+        <ExploreSidebar
+          initialValues={parseQueryStringToFilter({
+            queryString: query,
+            filterItems
+          })}
+          items={filterItems}
+          onFilter={handleFilter}
+        />
 
         {loading ? (
           <p>Carregando...</p>
