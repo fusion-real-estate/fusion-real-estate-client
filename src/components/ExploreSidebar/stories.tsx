@@ -7,7 +7,8 @@ export default {
   title: 'Sidebar/ExploreSidebar',
   component: ExploreSidebar,
   args: {
-    items
+    items,
+    onFilter: () => console.log('filter')
   }
 } as Meta
 
