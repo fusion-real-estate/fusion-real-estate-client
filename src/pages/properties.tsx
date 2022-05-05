@@ -21,15 +21,6 @@ export default function PropertyPage(props: PropertiesTemplateProps) {
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   const apolloClient = initializeApollo()
 
-  const filterPrice = {
-    title: 'Preço',
-    name: 'price_lte',
-    type: 'radio',
-    fields: [
-      { label: 'Abaixo de R$500.000,00', name: '500000' },
-      { label: 'Abaixo de R$8.000.000,00', name: '8000000' }
-    ]
-  }
   const filterSort = {
     title: 'Ordenar',
     name: 'sort',
@@ -39,6 +30,17 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
       { label: 'Menor Valor', name: 'price:asc' }
     ]
   }
+
+  const filterPrice = {
+    title: 'Preço',
+    name: 'price_lte',
+    type: 'radio',
+    fields: [
+      { label: 'Até R$500.000,00', name: '500000' },
+      { label: 'Até R$8.000.000,00', name: '8000000' }
+    ]
+  }
+
   const filtercategories = {
     title: 'Categoria',
     name: 'category',
@@ -53,20 +55,14 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
     name: 'location',
     type: 'checkbox',
     fields: [
-      {
-        label: 'Minas Gerais',
-        name: 'Minas Gerais'
-      },
-      {
-        label: 'Santa Catarina',
-        name: 'Santa Catarina'
-      }
+      { label: 'Minas Gerais', name: 'Minas Gerais' },
+      { label: 'Santa Catarina', name: 'Santa Catarina' }
     ]
   }
 
   const filterItems = [
-    filterPrice,
     filterSort,
+    filterPrice,
     filtercategories,
     filterLocation
   ]

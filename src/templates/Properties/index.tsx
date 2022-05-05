@@ -56,26 +56,32 @@ const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
           <p>Carregando...</p>
         ) : (
           <section>
-            <Grid>
-              {data?.properties.map((item) => (
-                <Card
-                  key={item.name}
-                  title={item.name}
-                  slug={item.slug}
-                  address={item.street}
-                  img={item.cover!.url}
-                  beds={item.bathrooms}
-                  bath={item.rooms}
-                  garage={item.garage}
-                  sqt={item.sqt}
-                  price={item.price}
-                />
-              ))}
-            </Grid>
-            <S.ShowMore role="button" onClick={handleShowMore}>
-              <p>Carregar Mais</p>
-              <ArrowDown size={35} />
-            </S.ShowMore>
+            {data?.properties.length ? (
+              <>
+                <Grid>
+                  {data?.properties.map((item) => (
+                    <Card
+                      key={item.name}
+                      title={item.name}
+                      slug={item.slug}
+                      address={item.street}
+                      img={item.cover!.url}
+                      beds={item.bathrooms}
+                      bath={item.rooms}
+                      garage={item.garage}
+                      sqt={item.sqt}
+                      price={item.price}
+                    />
+                  ))}
+                </Grid>
+                <S.ShowMore role="button" onClick={handleShowMore}>
+                  <p>Carregar Mais</p>
+                  <ArrowDown size={35} />
+                </S.ShowMore>
+              </>
+            ) : (
+              <h1>Criar Componente de Empty</h1>
+            )}
           </section>
         )}
       </S.Main>
