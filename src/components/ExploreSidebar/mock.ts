@@ -48,11 +48,11 @@ export default [
     fields: [
       {
         label: 'Casa',
-        name: 'house'
+        name: 'casa'
       },
       {
         label: 'Apartamento',
-        name: 'apartment'
+        name: 'apartamento'
       }
     ]
   },

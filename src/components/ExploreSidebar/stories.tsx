@@ -18,6 +18,9 @@ export const Basic: Story<ExploreSidebarProps> = (args) => (
 export const WithInitialValues: Story<ExploreSidebarProps> = (args) => (
   <ExploreSidebar
     {...args}
-    initialValues={{ house: true, sort_by: 'low-to-high' }}
+    initialValues={{
+      category: ['casa', 'apartamento'],
+      sort_by: 'low-to-high'
+    }}
   />
 )
