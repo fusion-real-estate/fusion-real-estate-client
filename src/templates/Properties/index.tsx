@@ -30,6 +30,13 @@ const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
     }
   })
 
+  if (!data) return <p>Carregando...</p>
+
+  const { properties, propertiesConnection } = data
+
+  const hasMoreProperties =
+    properties.length < (propertiesConnection?.values?.length || 0)
+
   const handleFilter = (items: ParsedUrlQueryInput) => {
     push({
       pathname: '/properties',
@@ -71,16 +78,21 @@ const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
                   />
                 ))}
               </Grid>
-              <S.ShowMore>
-                {loading ? (
-                  <S.ShowMoreLoading src="/img/dots.svg/" alt="Carregando..." />
-                ) : (
-                  <S.ShowMoreButton role="button" onClick={handleShowMore}>
-                    <p>Carregar Mais</p>
-                    <ArrowDown size={35} />
-                  </S.ShowMoreButton>
-                )}
-              </S.ShowMore>
+              {hasMoreProperties && (
+                <S.ShowMore>
+                  {loading ? (
+                    <S.ShowMoreLoading
+                      src="/img/dots.svg/"
+                      alt="Carregando..."
+                    />
+                  ) : (
+                    <S.ShowMoreButton role="button" onClick={handleShowMore}>
+                      <p>Carregar Mais</p>
+                      <ArrowDown size={35} />
+                    </S.ShowMoreButton>
+                  )}
+                </S.ShowMore>
+              )}
             </>
           ) : (
             <h1>Criar Componente de Empty</h1>

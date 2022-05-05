@@ -16,6 +16,12 @@ export const QUERY_PROPERTIES = gql`
     properties(limit: $limit, start: $start, where: $where, sort: $sort) {
       ...PropertyFragment
     }
+
+    propertiesConnection(where: $where) {
+      values {
+        id
+      }
+    }
   }
 
   ${PropertyFragment}

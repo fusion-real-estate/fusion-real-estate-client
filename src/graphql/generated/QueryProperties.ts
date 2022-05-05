@@ -25,8 +25,19 @@ export interface QueryProperties_properties {
   price: number | null;
 }
 
+export interface QueryProperties_propertiesConnection_values {
+  __typename: "Property";
+  id: string;
+}
+
+export interface QueryProperties_propertiesConnection {
+  __typename: "PropertyConnection";
+  values: (QueryProperties_propertiesConnection_values | null)[] | null;
+}
+
 export interface QueryProperties {
   properties: QueryProperties_properties[];
+  propertiesConnection: QueryProperties_propertiesConnection | null;
 }
 
 export interface QueryPropertiesVariables {
