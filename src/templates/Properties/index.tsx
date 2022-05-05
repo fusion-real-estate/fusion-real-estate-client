@@ -22,6 +22,7 @@ const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
   const { push, query } = useRouter()
 
   const { data, loading, fetchMore } = useQueryProperties({
+    notifyOnNetworkStatusChange: true,
     variables: {
       limit: 9,
       where: parseQueryStringToWhere({ queryString: query, filterItems }),
@@ -51,39 +52,40 @@ const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
           items={filterItems}
           onFilter={handleFilter}
         />
-
-        {loading ? (
-          <p>Carregando...</p>
-        ) : (
-          <section>
-            {data?.properties.length ? (
-              <>
-                <Grid>
-                  {data?.properties.map((item) => (
-                    <Card
-                      key={item.name}
-                      title={item.name}
-                      slug={item.slug}
-                      address={item.street}
-                      img={item.cover!.url}
-                      beds={item.bathrooms}
-                      bath={item.rooms}
-                      garage={item.garage}
-                      sqt={item.sqt}
-                      price={item.price}
-                    />
-                  ))}
-                </Grid>
-                <S.ShowMore role="button" onClick={handleShowMore}>
-                  <p>Carregar Mais</p>
-                  <ArrowDown size={35} />
-                </S.ShowMore>
-              </>
-            ) : (
-              <h1>Criar Componente de Empty</h1>
-            )}
-          </section>
-        )}
+        <section>
+          {data?.properties.length ? (
+            <>
+              <Grid>
+                {data?.properties.map((item) => (
+                  <Card
+                    key={item.name}
+                    title={item.name}
+                    slug={item.slug}
+                    address={item.street}
+                    img={item.cover!.url}
+                    beds={item.bathrooms}
+                    bath={item.rooms}
+                    garage={item.garage}
+                    sqt={item.sqt}
+                    price={item.price}
+                  />
+                ))}
+              </Grid>
+              <S.ShowMore>
+                {loading ? (
+                  <S.ShowMoreLoading src="/img/dots.svg/" alt="Carregando..." />
+                ) : (
+                  <S.ShowMoreButton role="button" onClick={handleShowMore}>
+                    <p>Carregar Mais</p>
+                    <ArrowDown size={35} />
+                  </S.ShowMoreButton>
+                )}
+              </S.ShowMore>
+            </>
+          ) : (
+            <h1>Criar Componente de Empty</h1>
+          )}
+        </section>
       </S.Main>
     </Base>
   )
