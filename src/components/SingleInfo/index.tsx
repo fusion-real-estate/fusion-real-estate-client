@@ -11,13 +11,12 @@ import * as S from './styles'
 export type SingleInfoProps = {
   title: string
   subtitle: string
-  feature?: string
   status?: string
   offer?: string
-  beds: string
-  bath: string
-  garage: string
-  sqt: string
+  beds: number
+  bath: number
+  garage: number
+  sqt: number
   price: number
   type: string
 }
@@ -25,7 +24,6 @@ export type SingleInfoProps = {
 const SingleInfo = ({
   title,
   subtitle,
-  feature,
   status,
   offer,
   beds,
@@ -43,7 +41,6 @@ const SingleInfo = ({
         <S.Title>{subtitle}</S.Title>
 
         <S.StylesBox>
-          <S.Feature>{feature}</S.Feature>
           <S.Status>{status}</S.Status>
           <S.Offer>{offer}</S.Offer>
         </S.StylesBox>
@@ -52,19 +49,27 @@ const SingleInfo = ({
       <S.BoxInformation>
         <S.BoxList>
           <Icon path={mdiBedKingOutline} />
-          <S.Description>{beds}</S.Description>
+          <S.Description>
+            {beds === 1 ? `${beds} Quarto` : `${beds} Quartos`}
+          </S.Description>
         </S.BoxList>
         <S.BoxList>
           <Icon path={mdiShower} />
-          <S.Description>{bath}</S.Description>
+          <S.Description>
+            {bath === 1 ? `${bath} Banheiro` : `${bath} Banheiros`}
+          </S.Description>
         </S.BoxList>
         <S.BoxList>
           <Icon path={mdiCar} />
-          <S.Description>{garage}</S.Description>
+          <S.Description>
+            {garage === 1 ? `${garage} Garagem` : `${garage} Garagens`}
+          </S.Description>
         </S.BoxList>
         <S.BoxList>
           <Icon path={mdiFormTextarea} />
-          <S.Description>{sqt}</S.Description>
+          <S.Description>
+            {sqt === 1 ? `${sqt} Metro(m²)` : `${sqt} Metros(m²)`}
+          </S.Description>
         </S.BoxList>
       </S.BoxInformation>
     </S.SingleContainer>

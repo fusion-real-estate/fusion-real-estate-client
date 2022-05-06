@@ -9,6 +9,7 @@ module.exports = {
     '!src/styles/**/*.ts',
     '!src/utils/apollo.ts',
     '!src/utils/apolloCache.ts',
+    '!src/utils/mappers.ts',
     '!src/types/**/*.d.ts',
     '!src/graphql/**/*.ts',
     '!src/**/mock.ts'

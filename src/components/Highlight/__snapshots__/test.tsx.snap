@@ -41,18 +41,6 @@ exports[`<Highlight /> should render the heading 1`] = `
   color: #FAFAFA;
 }
 
-.c4 {
-  color: #FAFAFA;
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin-bottom: 1.6rem;
-}
-
-.c4 strong {
-  color: #34ABD0;
-  font-weight: 600;
-}
-
 @media (min-width:768px) {
   .c1 {
     height: 35rem;
@@ -96,11 +84,6 @@ exports[`<Highlight /> should render the heading 1`] = `
       >
         Casa
       </h1>
-      <h3
-        class="c4"
-      >
-        700 Imóveis
-      </h3>
     </div>
   </div>
 </main>

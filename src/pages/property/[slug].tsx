@@ -76,13 +76,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       propertyInfo: {
         title: property.name,
         subtitle: property.street,
-        feature: property.label,
         status: property.status,
-        offer: 'Oferta',
-        beds: `${property.rooms} Quartos`,
-        bath: `${property.bathrooms} Banheiros`,
-        garage: `${property.garage} Garagem`,
-        sqt: `${property.sqt} Metros`,
+        offer: property.label,
+        beds: property.rooms,
+        bath: property.bathrooms,
+        garage: property.garage,
+        sqt: property.sqt,
         price: property.price,
         type: property.category?.name
       },
@@ -91,7 +90,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         label: image.alternativeText
       })),
       description: property.description,
-      facilities: property.facilities.map((item) => item.name),
       recommendedTitle: recommended.recommended?.section?.title,
       recommendedSubTitle: recommended.recommended?.section?.subtitle,
       recommended: propertiesMapper(

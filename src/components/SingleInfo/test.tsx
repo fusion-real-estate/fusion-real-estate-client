@@ -6,13 +6,12 @@ import SingleInfo from '.'
 const props = {
   title: 'Title',
   subtitle: 'Subtitle',
-  feature: 'Destaque',
   status: 'Venda',
-  offer: 'Oferta',
-  beds: '4',
-  bath: '1',
-  garage: '1',
-  sqt: '150',
+  offer: 'Destaque',
+  beds: 4,
+  bath: 1,
+  garage: 1,
+  sqt: 150,
   price: 1200.0,
   type: 'Apartamento'
 }
@@ -33,6 +32,5 @@ describe('<SingleInfo />', () => {
 
     expect(screen.getByText(/destaque/i)).toBeInTheDocument()
     expect(screen.getByText(/venda/i)).toBeInTheDocument()
-    expect(screen.getByText(/oferta/i)).toBeInTheDocument()
   })
 })

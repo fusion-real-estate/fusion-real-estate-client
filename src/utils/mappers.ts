@@ -47,8 +47,7 @@ export const categoriesMapper = (
     categories &&
     categories.map((category) => ({
       img: category.cover?.url,
-      title: category.name,
-      subtitle: '700 Imóveis'
+      title: category.name
     }))
   )
 }
@@ -60,8 +59,7 @@ export const locationMapper = (
     locations &&
     locations.map((location) => ({
       img: location.cover?.url,
-      title: location.name,
-      subtitle: '700 Imóveis'
+      title: location.name
     }))
   )
 }

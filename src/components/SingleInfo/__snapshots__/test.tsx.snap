@@ -59,18 +59,14 @@ exports[`<SingleInfo /> should render single information 1`] = `
 }
 
 .c6 {
-  background-color: #34ABD0;
-}
-
-.c7 {
   background-color: #0D263B;
 }
 
-.c8 {
+.c7 {
   background-color: #CC2828;
 }
 
-.c9 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -82,7 +78,7 @@ exports[`<SingleInfo /> should render single information 1`] = `
   margin-top: 1.6rem;
 }
 
-.c10 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -94,14 +90,14 @@ exports[`<SingleInfo /> should render single information 1`] = `
   margin-right: 0.8rem;
 }
 
-.c10 svg {
+.c9 svg {
   height: 2rem;
   width: 2rem;
   color: #7D7D7D;
   margin-right: 1.6rem;
 }
 
-.c11 {
+.c10 {
   color: #7D7D7D;
   font-weight: 400;
   font-size: 1.2rem;
@@ -111,17 +107,17 @@ exports[`<SingleInfo /> should render single information 1`] = `
   text-align: left;
 }
 
-.c12 {
+.c11 {
   text-align: right;
 }
 
-.c13 {
+.c12 {
   color: #0D263B;
   font-size: 2.8rem;
   font-weight: 600;
 }
 
-.c14 {
+.c13 {
   color: #7D7D7D;
   font-size: 1.8rem;
   font-weight: 400;
@@ -159,25 +155,20 @@ exports[`<SingleInfo /> should render single information 1`] = `
         <div
           class="c6"
         >
-          Destaque
+          Venda
         </div>
         <div
           class="c7"
         >
-          Venda
-        </div>
-        <div
-          class="c8"
-        >
-          Oferta
+          Destaque
         </div>
       </div>
     </div>
     <div
-      class="c9"
+      class="c8"
     >
       <div
-        class="c10"
+        class="c9"
       >
         <svg
           role="presentation"
@@ -189,13 +180,13 @@ exports[`<SingleInfo /> should render single information 1`] = `
           />
         </svg>
         <p
-          class="c11"
+          class="c10"
         >
-          4
+          4 Quartos
         </p>
       </div>
       <div
-        class="c10"
+        class="c9"
       >
         <svg
           role="presentation"
@@ -207,13 +198,13 @@ exports[`<SingleInfo /> should render single information 1`] = `
           />
         </svg>
         <p
-          class="c11"
+          class="c10"
         >
-          1
+          1 Banheiro
         </p>
       </div>
       <div
-        class="c10"
+        class="c9"
       >
         <svg
           role="presentation"
@@ -225,13 +216,13 @@ exports[`<SingleInfo /> should render single information 1`] = `
           />
         </svg>
         <p
-          class="c11"
+          class="c10"
         >
-          1
+          1 Garagem
         </p>
       </div>
       <div
-        class="c10"
+        class="c9"
       >
         <svg
           role="presentation"
@@ -243,23 +234,23 @@ exports[`<SingleInfo /> should render single information 1`] = `
           />
         </svg>
         <p
-          class="c11"
+          class="c10"
         >
-          150
+          150 Metros(m²)
         </p>
       </div>
     </div>
   </div>
   <div
-    class="c12"
+    class="c11"
   >
     <div
-      class="c13"
+      class="c12"
     >
       R$ 1.200,00
     </div>
     <div
-      class="c14"
+      class="c13"
     >
       Apartamento
     </div>

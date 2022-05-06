@@ -9,7 +9,7 @@ export const QUERY_HOME = gql`
       ...BannerFragment
     }
 
-    featuredProperties: properties(where: { label: "featured" }, limit: 8) {
+    featuredProperties: properties(where: { label: "Destaque" }, limit: 8) {
       ...PropertyFragment
     }
 
@@ -20,7 +20,7 @@ export const QUERY_HOME = gql`
       }
     }
 
-    promotionProperties: properties(where: { label: "hot" }, limit: 8) {
+    promotionProperties: properties(where: { label: "Promocao" }, limit: 8) {
       ...PropertyFragment
     }
 

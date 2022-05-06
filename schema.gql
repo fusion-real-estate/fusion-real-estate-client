@@ -526,13 +526,13 @@ type deleteLocationPayload {
 }
 
 enum ENUM_PROPERTY_STATUS {
-  Rent
-  Sale
+  Aluguel
+  Venda
 }
 
 enum ENUM_PROPERTY_LABEL {
-  featured
-  hot
+  Destaque
+  Promocao
 }
 
 type Property {

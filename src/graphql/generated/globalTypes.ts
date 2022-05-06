@@ -18,13 +18,13 @@ export enum ENUM_COMPONENTPAGERIBBON_SIZE {
 }
 
 export enum ENUM_PROPERTY_LABEL {
-  featured = "featured",
-  hot = "hot",
+  Destaque = "Destaque",
+  Promocao = "Promocao",
 }
 
 export enum ENUM_PROPERTY_STATUS {
-  Rent = "Rent",
-  Sale = "Sale",
+  Aluguel = "Aluguel",
+  Venda = "Venda",
 }
 
 //==============================================================

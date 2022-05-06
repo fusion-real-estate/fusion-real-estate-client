@@ -8,38 +8,32 @@ const items = [
   {
     img:
       'https://creativelayers.net/themes/houzing-html/images/property/ep1.jpg',
-    title: 'Casa',
-    subtitle: '700 Imóveis'
+    title: 'Casa'
   },
   {
     img:
       'https://creativelayers.net/themes/houzing-html/images/property/ep1.jpg',
-    title: 'Aparatmento',
-    subtitle: '200 Imóveis'
+    title: 'Aparatmento'
   },
   {
     img:
       'https://creativelayers.net/themes/houzing-html/images/property/ep1.jpg',
-    title: 'Casa',
-    subtitle: '700 Imóveis'
+    title: 'Casa'
   },
   {
     img:
       'https://creativelayers.net/themes/houzing-html/images/property/ep1.jpg',
-    title: 'Aparatmento',
-    subtitle: '200 Imóveis'
+    title: 'Aparatmento'
   },
   {
     img:
       'https://creativelayers.net/themes/houzing-html/images/property/ep1.jpg',
-    title: 'Casa',
-    subtitle: '700 Imóveis'
+    title: 'Casa'
   },
   {
     img:
       'https://creativelayers.net/themes/houzing-html/images/property/ep1.jpg',
-    title: 'Aparatmento',
-    subtitle: '200 Imóveis'
+    title: 'Aparatmento'
   }
 ]
 

@@ -3,7 +3,6 @@ import Base from 'templates/Base'
 import SingleInfo, { SingleInfoProps } from 'components/SingleInfo'
 import Gallery, { GalleryImageProps } from 'components/Gallery'
 import TextContent from 'components/TextContent'
-import Facilities from 'components/Facilities'
 
 import * as S from './styles'
 import Showcase from 'components/Showcase'
@@ -25,7 +24,6 @@ const Property = ({
   propertyInfo,
   gallery,
   description,
-  facilities,
   recommended,
   recommendedTitle,
   recommendedSubTitle
@@ -42,10 +40,6 @@ const Property = ({
         <S.SectionDescription>
           <TextContent title="Descrição" content={description} />
         </S.SectionDescription>
-
-        <S.SectionFacilities>
-          <Facilities title="Facilidades" content={facilities} />
-        </S.SectionFacilities>
       </S.SectionPropertyInfo>
 
       <Container>
