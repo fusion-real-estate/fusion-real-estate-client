@@ -31,8 +31,15 @@ export interface QueryPropertyBySlug_properties_gallery {
   alternativeText: string | null;
 }
 
+export interface QueryPropertyBySlug_properties_facilities_icon {
+  __typename: "UploadFile";
+  url: string;
+  alternativeText: string | null;
+}
+
 export interface QueryPropertyBySlug_properties_facilities {
   __typename: "Facilities";
+  icon: QueryPropertyBySlug_properties_facilities_icon | null;
   name: string;
 }
 

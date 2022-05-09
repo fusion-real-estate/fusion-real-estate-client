@@ -57,6 +57,10 @@ export const QUERY_PROPERTY_BY_SLUG = gql`
         alternativeText
       }
       facilities {
+        icon {
+          url
+          alternativeText
+        }
         name
       }
     }

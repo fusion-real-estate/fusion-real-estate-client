@@ -296,6 +296,7 @@ type Facilities {
   created_at: DateTime!
   updated_at: DateTime!
   name: String!
+  icon: UploadFile
   properties(sort: String, limit: Int, start: Int, where: JSON): [Property!]!
 }
 
@@ -315,6 +316,7 @@ type FacilitiesGroupBy {
   created_at: [FacilitiesConnectionCreated_at]
   updated_at: [FacilitiesConnectionUpdated_at]
   name: [FacilitiesConnectionName]
+  icon: [FacilitiesConnectionIcon]
 }
 
 type FacilitiesConnectionId {
@@ -337,9 +339,15 @@ type FacilitiesConnectionName {
   connection: FacilitiesConnection
 }
 
+type FacilitiesConnectionIcon {
+  key: ID
+  connection: FacilitiesConnection
+}
+
 input FacilityInput {
   name: String!
   properties: [ID]
+  icon: ID
   created_by: ID
   updated_by: ID
 }
@@ -347,6 +355,7 @@ input FacilityInput {
 input editFacilityInput {
   name: String
   properties: [ID]
+  icon: ID
   created_by: ID
   updated_by: ID
 }
@@ -1399,7 +1408,7 @@ input editComponentPageSectionInput {
   subtitle: String
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Banner | BannerConnection | BannerAggregator | BannerGroupBy | BannerConnectionId | BannerConnectionCreated_at | BannerConnectionUpdated_at | BannerConnectionImage | BannerConnectionTitle | BannerConnectionSubtitle | BannerConnectionButton | BannerConnectionRibbon | createBannerPayload | updateBannerPayload | deleteBannerPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionName | CategoryConnectionSlug | CategoryConnectionCover | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Facilities | FacilitiesConnection | FacilitiesAggregator | FacilitiesGroupBy | FacilitiesConnectionId | FacilitiesConnectionCreated_at | FacilitiesConnectionUpdated_at | FacilitiesConnectionName | createFacilityPayload | updateFacilityPayload | deleteFacilityPayload | Home | updateHomePayload | deleteHomePayload | Location | LocationConnection | LocationAggregator | LocationGroupBy | LocationConnectionId | LocationConnectionCreated_at | LocationConnectionUpdated_at | LocationConnectionName | LocationConnectionSlug | LocationConnectionCover | createLocationPayload | updateLocationPayload | deleteLocationPayload | Property | PropertyConnection | PropertyAggregator | PropertyAggregatorSum | PropertyAggregatorAvg | PropertyAggregatorMin | PropertyAggregatorMax | PropertyGroupBy | PropertyConnectionId | PropertyConnectionCreated_at | PropertyConnectionUpdated_at | PropertyConnectionName | PropertyConnectionStreet | PropertyConnectionPrice | PropertyConnectionStatus | PropertyConnectionDescription | PropertyConnectionCover | PropertyConnectionRooms | PropertyConnectionBathrooms | PropertyConnectionGarage | PropertyConnectionSqt | PropertyConnectionCategory | PropertyConnectionLocation | PropertyConnectionLabel | PropertyConnectionYear | PropertyConnectionSlug | PropertyConnectionPublished_at | createPropertyPayload | updatePropertyPayload | deletePropertyPayload | Recommended | updateRecommendedPayload | deleteRecommendedPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentPageButton | ComponentPageHighlight | ComponentPagePoularProperties | ComponentPageRibbon | ComponentPageSection
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Banner | BannerConnection | BannerAggregator | BannerGroupBy | BannerConnectionId | BannerConnectionCreated_at | BannerConnectionUpdated_at | BannerConnectionImage | BannerConnectionTitle | BannerConnectionSubtitle | BannerConnectionButton | BannerConnectionRibbon | createBannerPayload | updateBannerPayload | deleteBannerPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionName | CategoryConnectionSlug | CategoryConnectionCover | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Facilities | FacilitiesConnection | FacilitiesAggregator | FacilitiesGroupBy | FacilitiesConnectionId | FacilitiesConnectionCreated_at | FacilitiesConnectionUpdated_at | FacilitiesConnectionName | FacilitiesConnectionIcon | createFacilityPayload | updateFacilityPayload | deleteFacilityPayload | Home | updateHomePayload | deleteHomePayload | Location | LocationConnection | LocationAggregator | LocationGroupBy | LocationConnectionId | LocationConnectionCreated_at | LocationConnectionUpdated_at | LocationConnectionName | LocationConnectionSlug | LocationConnectionCover | createLocationPayload | updateLocationPayload | deleteLocationPayload | Property | PropertyConnection | PropertyAggregator | PropertyAggregatorSum | PropertyAggregatorAvg | PropertyAggregatorMin | PropertyAggregatorMax | PropertyGroupBy | PropertyConnectionId | PropertyConnectionCreated_at | PropertyConnectionUpdated_at | PropertyConnectionName | PropertyConnectionStreet | PropertyConnectionPrice | PropertyConnectionStatus | PropertyConnectionDescription | PropertyConnectionCover | PropertyConnectionRooms | PropertyConnectionBathrooms | PropertyConnectionGarage | PropertyConnectionSqt | PropertyConnectionCategory | PropertyConnectionLocation | PropertyConnectionLabel | PropertyConnectionYear | PropertyConnectionSlug | PropertyConnectionPublished_at | createPropertyPayload | updatePropertyPayload | deletePropertyPayload | Recommended | updateRecommendedPayload | deleteRecommendedPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentPageButton | ComponentPageHighlight | ComponentPagePoularProperties | ComponentPageRibbon | ComponentPageSection
 
 input InputID {
   id: ID!
