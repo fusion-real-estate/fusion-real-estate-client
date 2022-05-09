@@ -1,13 +1,22 @@
-import { render, screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
 
 import CardFacility from '.'
 
-describe('<CardFacility />', () => {
-  it('should render the heading', () => {
-    render(<CardFacility />)
+const items = [
+  {
+    icon:
+      'https://res.cloudinary.com/dtykejdjn/image/upload/v1651790246/air_filter_78f05f422a.png',
+    name: 'Ar Condicionado'
+  },
+  {
+    icon:
+      'https://res.cloudinary.com/dtykejdjn/image/upload/v1651790259/grill_outline_d950aed23f.png',
+    name: 'Churrasqueira'
+  }
+]
 
-    expect(
-      screen.getByRole('heading', { name: /CardFacility/i })
-    ).toBeInTheDocument()
+describe('<CardFacility />', () => {
+  it('should render the cards articles lenght', () => {
+    renderWithTheme(<CardFacility title="Facilidades" items={items} />)
   })
 })

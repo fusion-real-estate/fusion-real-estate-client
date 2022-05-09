@@ -22,9 +22,10 @@ export const Icon = styled.div`
   `}
 `
 
-export const Description = styled.div`
+export const Description = styled.h3`
   ${({ theme }) => css`
     color: ${theme.colors.gray};
+    font-weight: ${theme.font.light};
     font-size: ${theme.font.sizes.xsmall};
     margin-left: ${theme.spacings.xxsmall};
   `}
