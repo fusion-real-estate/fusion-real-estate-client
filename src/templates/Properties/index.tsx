@@ -13,6 +13,7 @@ import { useQueryProperties } from 'graphql/queries/properties'
 
 import * as S from './styles'
 import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
+import Empty from 'components/Empty'
 
 export type PropertiesTemplateProps = {
   filterItems: ItemProps[]
@@ -95,7 +96,11 @@ const PropertiesTemplate = ({ filterItems }: PropertiesTemplateProps) => {
               )}
             </>
           ) : (
-            <h1>Criar Componente de Empty</h1>
+            <Empty
+              title="Whoops: Página não encontrada!"
+              description="Volte até a home"
+              hasLink
+            />
           )}
         </section>
       </S.Main>
