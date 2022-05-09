@@ -90,6 +90,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         label: image.alternativeText
       })),
       description: property.description,
+      facilities: property.facilities.map((item) => ({
+        icon: item.icon?.url,
+        name: item.name
+      })),
       recommendedTitle: recommended.recommended?.section?.title,
       recommendedSubTitle: recommended.recommended?.section?.subtitle,
       recommended: propertiesMapper(
