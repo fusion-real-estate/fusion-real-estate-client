@@ -48,7 +48,7 @@ export async function getStaticProps() {
       newHighlight: locationMapper(locations),
       popularTitle: sections?.poularProperties?.title,
       popularSubTitle: sections?.poularProperties?.subtitle,
-      poularProperties: propertiesMapper(sections!.poularProperties?.properties)
+      poularProperties: propertiesMapper(sections?.poularProperties?.properties)
     }
   }
 }
