@@ -10,12 +10,16 @@ export type CardFacilityProps = {
 
 const CardFacility = ({ title, items }: CardFacilityProps) => (
   <S.Wrapper>
-    <Heading lineLeft>{title}</Heading>
-    <S.Content>
-      {items.map((item, index) => (
-        <Facilities key={index} {...item} />
-      ))}
-    </S.Content>
+    {items.length > 0 && (
+      <>
+        <Heading lineLeft>{title}</Heading>
+        <S.Content>
+          {items.map((item, index) => (
+            <Facilities key={index} {...item} />
+          ))}
+        </S.Content>
+      </>
+    )}
   </S.Wrapper>
 )
 
